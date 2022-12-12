@@ -1,5 +1,5 @@
 require('impatient')
-require('plugins')
-require('settings')
+require('core')
+require('plugins_config')
 require('keymaps')
 require('daps')

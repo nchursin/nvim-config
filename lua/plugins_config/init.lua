@@ -1,0 +1,6 @@
+require('plugins_config.mason')
+require('plugins_config.treesitter')
+require('plugins_config.lualine')
+require('plugins_config.nvim_comment')
+require('plugins_config.telescope')
+require('plugins_config.which_key')

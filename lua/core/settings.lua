@@ -1,9 +1,10 @@
-local map = vim.api.nvim_set_keymap
-local cmd = vim.cmd             -- execute Vim commands
-local autocmd = vim.api.nvim_create_autocmd
-local g = vim.g                 -- global variables
-local set = vim.api.nvim_set_option
-local fn = vim.fn
+local vimApi = require('core.vimApi')
+local map = vimApi.map
+local cmd = vimApi.cmd             -- execute Vim commands
+local autocmd = vimApi.autocmd
+local g = vimApi.g                 -- global variables
+local set_option = vimApi.set_option
+local fn = vimApi.fn
 
 
 -- Various UX
@@ -23,10 +24,10 @@ cmd([[
 ]])
 
 -- line numbers
-set('number', true)
-set('numberwidth', 4)
-set('ruler', true)
-set('signcolumn', 'yes')
+set_option('number', true)
+set_option('numberwidth', 4)
+set_option('ruler', true)
+set_option('signcolumn', 'yes')
 -- auto switch line numbering
 cmd([[
 :augroup numbertoggle
@@ -41,15 +42,15 @@ cmd([[
 -- set autoindent
 -- set cindent
 -- set smartindent
-set('expandtab', true)
-set('tabstop', 4)
-set('softtabstop', 4)
-set('shiftwidth', 4)
+set_option('expandtab', true)
+set_option('tabstop', 4)
+set_option('softtabstop', 4)
+set_option('shiftwidth', 4)
 
 
 -- Disable all bells and whistles
-set('errorbells', false)
-set('visualbell', false)
+set_option('errorbells', false)
+set_option('visualbell', false)
 
 
 autocmd(
@@ -62,8 +63,9 @@ autocmd(
 
 local function reload_plugins()
     -- cmd':Reload'
-    cmd':Restart'
-    cmd':PackerSync'
+    -- cmd':Restart'
+    -- cmd':PackerCompile'
+    -- cmd':PackerSync'
 end
 
 autocmd(
@@ -94,7 +96,7 @@ cmd([[
 ]])
 
 -- vim-test
-vim.cmd ( [[
+cmd ( [[
     let test#strategy = "neovim"
     let g:test#javascript#mocha#file_pattern = '\v((test|spec)s?/.*|(spec))\.(js|jsx|coffee|ts)$'
     let g:test#javascript#webdriverio#file_pattern = '\v((test|spec)s?/.*|(test))\.(js|jsx|coffee|ts)$'
@@ -181,7 +183,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lspconfig = require('lspconfig')
 local servers = {
