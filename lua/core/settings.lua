@@ -5,6 +5,9 @@ local autocmd = vimApi.autocmd
 local g = vimApi.g                 -- global variables
 local set_option = vimApi.set_option
 local fn = vimApi.fn
+local opt = vimApi.opt
+local lsp = vimApi.lsp
+local api = vimApi.api
 
 
 -- Various UX
@@ -47,7 +50,6 @@ set_option('tabstop', 4)
 set_option('softtabstop', 4)
 set_option('shiftwidth', 4)
 
-
 -- Disable all bells and whistles
 set_option('errorbells', false)
 set_option('visualbell', false)
@@ -79,10 +81,10 @@ autocmd(
 -- PLUGINS SETTINGS
 
 -- bufferline
-vim.opt.termguicolors = false
+opt.termguicolors = false
 
 -- nerdtree
-vim.NERDTreeShowHidden=1
+vimApi.vim.NERDTreeShowHidden=1
 
 -- eslint
 g.formatdef_eslint = '"eslint-formatter"'
@@ -121,10 +123,10 @@ cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+            fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
             -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
             -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-            -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+            -- fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         end,
     },
     window = {
@@ -183,7 +185,7 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(lsp.protocol.make_client_capabilities())
 
 local lspconfig = require('lspconfig')
 local servers = {
@@ -211,7 +213,7 @@ local servers = {
 
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions

@@ -5,6 +5,10 @@ local api = {
     fn = vim.fn,
     autocmd = vim.api.nvim_create_autocmd,
     map = vim.api.nvim_set_keymap,
+    opt = vim.opt,
+    lsp = vim.lsp,
+    api = vim.api,
+    vim = vim,
 }
 
 return api
