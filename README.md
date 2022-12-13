@@ -1,0 +1,3 @@
+# nchursin neovim config
+
+
