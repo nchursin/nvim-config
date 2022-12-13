@@ -1,13 +1,12 @@
-local vimApi = require('core.vimApi')
-local map = vimApi.map
-local cmd = vimApi.cmd             -- execute Vim commands
-local autocmd = vimApi.autocmd
-local g = vimApi.g                 -- global variables
-local set_option = vimApi.set_option
-local fn = vimApi.fn
-local opt = vimApi.opt
-local lsp = vimApi.lsp
-local api = vimApi.api
+local map = vim.api.nvim_set_keymap
+local cmd = vim.cmd             -- execute Vim commands
+local autocmd = vim.api.nvim_create_autocmd
+local g = vim.g                 -- global variables
+local set_option = vim.api.nvim_set_option
+local fn = vim.fn
+local opt = vim.opt
+local lsp = vim.lsp
+local api = vim.api
 
 
 -- Various UX
@@ -84,7 +83,7 @@ autocmd(
 opt.termguicolors = false
 
 -- nerdtree
-vimApi.vim.NERDTreeShowHidden=1
+vim.NERDTreeShowHidden=1
 
 -- eslint
 g.formatdef_eslint = '"eslint-formatter"'

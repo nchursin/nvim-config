@@ -1,6 +1,5 @@
-local vimApi = require('core.vimApi')
-local g = vimApi.g
-local cmd = vimApi.cmd
+local g = vim.g
+local cmd = vim.cmd
 
 cmd [[packadd packer.nvim]]
 
@@ -48,6 +47,7 @@ return require('packer').startup(function(use)
     -- lsp installer
     use {
         "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         requires = {
             {
                 'williamboman/mason-lspconfig.nvim',
