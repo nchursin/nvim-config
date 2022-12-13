@@ -1,6 +1,4 @@
-local cmd = vim.cmd -- execute Vim commands
 local map = vim.api.nvim_set_keymap
-local unmap = vim.api.nvim_del_keymap
 local default_opts = { noremap = true, silent = true }
 
 vim.g.mapleader = ' '
@@ -76,7 +74,6 @@ map('n', '<leader>dr', "<cmd> lua require'dap'.repl.open() <CR>", default_opts)
 
 
 -- easymotion
--- unmap('<leader>f')
 map ( 'n', '<leader>f', '<Plug>(easymotion-overwin-f)', default_opts )
 map ( 'n', '<leader>s', '<Plug>(easymotion-overwin-f2)', default_opts )
 map ( 'n', '<leader>w', '<Plug>(easymotion-overwin-w)', default_opts )
