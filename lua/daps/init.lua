@@ -1,1 +1,1 @@
-require('daps.javascript')
+-- require('daps.js')

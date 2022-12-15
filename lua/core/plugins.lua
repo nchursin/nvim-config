@@ -35,14 +35,6 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-cmdline',
         },
     }
-    use {
-        'mfussenegger/nvim-dap',
-    }
-    use {
-        "microsoft/vscode-js-debug",
-        opt = true,
-        run = "npm install --legacy-peer-deps && npm run compile"
-    }
 
     -- lsp installer
     use {
@@ -82,9 +74,6 @@ return require('packer').startup(function(use)
     use 'PhilRunninger/nerdtree-visual-selection'
 
     use {
-        'nvim-telescope/telescope-dap.nvim',
-    }
-    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} },
     }
@@ -121,8 +110,30 @@ return require('packer').startup(function(use)
     }
 
     -- General
+     -- tests
     use {
         'vim-test/vim-test',
-    } -- tests
+        "nvim-neotest/neotest",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-neotest/neotest-vim-test",
+            "nvim-neotest/neotest-plenary",
+            "haydenmeade/neotest-jest",
+            "nvim-neotest/neotest-go",
+            "nvim-neotest/neotest-python",
+        },
+    }
+    -- debug
+    use {
+        'mfussenegger/nvim-dap',
+        'nvim-telescope/telescope-dap.nvim',
+        {
+            "microsoft/vscode-js-debug",
+            opt = true,
+            run = "npm install --legacy-peer-deps && npm run compile",
+        },
+    }
 
 end)
