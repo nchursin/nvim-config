@@ -117,13 +117,13 @@ return require('packer').startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-neotest/neotest-vim-test",
-            "nvim-neotest/neotest-plenary",
-            "haydenmeade/neotest-jest",
-            "nvim-neotest/neotest-go",
-            "nvim-neotest/neotest-python",
         },
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-neotest/neotest-vim-test",
+        "nvim-neotest/neotest-plenary",
+        "haydenmeade/neotest-jest",
+        "nvim-neotest/neotest-go",
+        "nvim-neotest/neotest-python",
     }
     -- debug
     use {
@@ -134,6 +134,9 @@ return require('packer').startup(function(use)
             opt = true,
             run = "npm install --legacy-peer-deps && npm run compile",
         },
+        {
+            'leoluz/nvim-dap-go',
+        }
     }
 
 end)
