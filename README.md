@@ -9,6 +9,12 @@
 ## TODO
 
 - [ ] dap support
+    - [ ] debug tests go
+    - [ ] debug tests js
+        - [ ] webdriver
+        - [ ] mocha
+        - [ ] jest
+- [ ] BUG: debug mappings only work after :Restart
 - [ ] lazy loading
 - [ ] adequate vim-like tabs
 - [ ] Mason Astro-like GUI
