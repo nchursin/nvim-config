@@ -1,7 +1,7 @@
 local dap = require('dap')
 local fn = vim.fn
 
-require('core.cmp_lsp.dap_config.config.js')
+require('core.dap_config.config.js')
 
 fn.sign_define('DapBreakpoint', {text='🅱️', texthl='', linehl='', numhl=''})
 fn.sign_define('DapStopped', {text='➡️', texthl='', linehl='', numhl=''})
