@@ -12,9 +12,8 @@
     - [ ] debug tests go
     - [ ] debug tests js
         - [ ] webdriver
-        - [ ] mocha
+        - [x] mocha
         - [ ] jest
-- [ ] BUG: debug mappings only work after :Restart
 - [ ] lazy loading
 - [ ] adequate vim-like tabs
 - [ ] Mason Astro-like GUI
