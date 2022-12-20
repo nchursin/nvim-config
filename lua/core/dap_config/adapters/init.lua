@@ -1,10 +1,6 @@
-local dap = require('dap')
-local fn = vim.fn
+require('core.dap_config.adapters.js')
 
-require('core.dap_config.config.js')
-
-fn.sign_define('DapBreakpoint', {text='🅱️', texthl='', linehl='', numhl=''})
-fn.sign_define('DapStopped', {text='➡️', texthl='', linehl='', numhl=''})
+-- local dap = require('dap')
 
 -- dap.adapters.node2 = {
 --   type = 'executable',

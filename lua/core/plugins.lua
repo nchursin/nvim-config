@@ -131,7 +131,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope-dap.nvim',
         {
             "microsoft/vscode-js-debug",
-            -- opt = true,
+            opt = true,
             run = "npm install --legacy-peer-deps && npm run compile",
         },
         {
@@ -139,6 +139,9 @@ return require('packer').startup(function(use)
         },
         {
             "mxsdev/nvim-dap-vscode-js",
+        },
+        {
+            "rcarriga/nvim-dap-ui",
         },
     }
 
