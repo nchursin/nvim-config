@@ -46,9 +46,4 @@ local mapping = {
     },
 }
 
-
-for _, language in ipairs({ "typescript", "javascript" }) do
-    require("dap").configurations[language] = mapping.mocha
-end
-
 return mapping
