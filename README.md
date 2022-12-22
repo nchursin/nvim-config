@@ -9,9 +9,9 @@
 ## TODO
 
 - [ ] dap support
-    - [ ] debug tests go
+    - [x] debug tests go
     - [ ] debug tests js
-        - [ ] webdriver
+        - [x] webdriver
         - [x] mocha
         - [ ] jest
 - [ ] lazy loading
