@@ -2,6 +2,8 @@ local cmd = vim.cmd
 local mappings_utils = require('utils.mappings_utils')
 local map = mappings_utils.map
 
+require'core.global_config_changer'.set_js_runner('mocha')
+
 -- cmd [[
 -- function! DebugNearest()
 --   let g:test#go#runner = 'delve'
@@ -23,8 +25,10 @@ map('n', 't<C-l>', ':lua require("neotest").run.run_last()<CR>', { noremap = fal
 map('n', 't<C-s>', ':lua require("neotest").summary.toggle()<CR>', { noremap = false })
 map('n', 't<C-t>', ':lua require("neotest").output_panel.toggle()<CR>', { noremap = false })
 
-map('n', 'tcjw', ':let g:test#javascript#runner="webdriverio"<CR>', { noremap = false })
-map('n', 'tcjm', ':let g:test#javascript#runner="mocha"<CR>', { noremap = false })
+map('n', 'tcjw', ":lua require'core.global_config_changer'.set_js_runner('webdriverio')<CR>", { noremap = false })
+map('n', 'tcjm', ":lua require'core.global_config_changer'.set_js_runner('mocha')<CR>", { noremap = false })
+-- map('n', 'tcjw', ':let g:test#javascript#runner="webdriverio"<CR>', { noremap = false })
+-- map('n', 'tcjm', ':let g:test#javascript#runner="mocha"<CR>', { noremap = false })
 map('n', 'tcjj', ':let g:test#javascript#runner="jest"<CR>', { noremap = false })
 map('n', 'tsj', ':echo g:test#javascript#runner<CR>', { noremap = false })
 

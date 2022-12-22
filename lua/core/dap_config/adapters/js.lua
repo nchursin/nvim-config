@@ -8,9 +8,8 @@ require("dap-vscode-js").setup({
   -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
 })
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-    require("dap").configurations[language] =
-    {
+local mapping = {
+    mocha = {
         {
             type = "pwa-node",
             request = "launch",
@@ -25,5 +24,31 @@ for _, language in ipairs({ "typescript", "javascript" }) do
             console = "integratedTerminal",
             internalConsoleOptions = "neverOpen",
         }
-    }
+    },
+    webdriverio = {
+        {
+            type = "pwa-node",
+            request = "launch",
+            name = "Debug WebdriverIO Tests",
+            -- trace = true, -- include debugger info
+            runtimeExecutable = "node",
+            runtimeArgs = {
+                "./node_modules/@wdio/cli/bin/wdio.js",
+                "./wdio.conf.ts",
+                "--spec",
+                "${file}",
+            },
+            rootPath = "${workspaceFolder}",
+            cwd = "${workspaceFolder}",
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+        }
+    },
+}
+
+
+for _, language in ipairs({ "typescript", "javascript" }) do
+    require("dap").configurations[language] = mapping.mocha
 end
+
+return mapping
