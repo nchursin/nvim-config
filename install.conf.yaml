@@ -8,4 +8,5 @@
 - link:
     ~/.config/nvim/init.lua: init.lua
     ~/.config/nvim/lua: lua
+    ~/.config/nvim/tree-sitter-parsers: tree-sitter-parsers
 
