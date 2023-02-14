@@ -1,4 +1,3 @@
-require('ensure_packer')
-require('impatient')
+require('preload')
 require('core')
 require('plugins_config')
