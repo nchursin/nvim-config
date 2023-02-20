@@ -1,25 +1,6 @@
 require("mason-lspconfig").setup({
     ensure_installed = {
-        'apex_ls',
-        'bashls',
-        'cssls',
-        'clojure_lsp',
-        'dockerls',
-        'eslint',
-        'gopls',
-        'graphql',
-        'html',
-        'jsonls',
-        'jdtls',
-        'tsserver',
-        'kotlin_language_server',
-        'sumneko_lua',
-        'pylsp',
-        'rust_analyzer',
-        'sqls',
-        'svelte',
-        'lemminx',
-        'yamlls',
+        'lua-language-server',
     }
 })
 
