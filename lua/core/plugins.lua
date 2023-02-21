@@ -152,5 +152,9 @@ return require('packer').startup(function(use)
         requires = 'nvim-tree/nvim-web-devicons'
     }
 
+    use {
+        "windwp/nvim-autopairs",
+    }
+
 end)
 
