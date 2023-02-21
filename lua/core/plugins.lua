@@ -86,8 +86,9 @@ return require('packer').startup(function(use)
 
     -- Git
     use {
-        'airblade/vim-gitgutter',
-    } -- Show git diff of lines edited
+        'lewis6991/gitsigns.nvim',
+        tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    }
 
     -- Javascript/Typescript
 
