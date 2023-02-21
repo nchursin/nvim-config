@@ -20,7 +20,6 @@ local servers = {
     'jdtls',
     'tsserver',
     'kotlin_language_server',
-    'sumneko_lua',
     'pylsp',
     'rust_analyzer',
     'sqls',
