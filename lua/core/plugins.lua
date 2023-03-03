@@ -156,5 +156,9 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
     }
 
+    use {
+        "ianding1/leetcode.vim",
+    }
+
 end)
 
