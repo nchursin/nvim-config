@@ -2,7 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "tree-sitter-parsers/tree-sitter-sfapex"]
-	path = tree-sitter-parsers/tree-sitter-sfapex
-	url = https://github.com/aheber/tree-sitter-sfapex
-	ignore = dirty
