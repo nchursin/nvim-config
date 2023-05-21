@@ -22,7 +22,7 @@ local servers = {
     'kotlin_language_server',
     'pylsp',
     'rust_analyzer',
-    'sqls',
+    'sqlls',
     'svelte',
     'lemminx',
     'yamlls',

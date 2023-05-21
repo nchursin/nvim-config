@@ -1,11 +1,10 @@
-require("mason-lspconfig").setup({
-    ensure_installed = {
-        'lua-language-server',
-    }
-})
-
 require("mason").setup({
     check_outdated_packages_on_open = true,
+
+    registries = {
+        "github:mason-org/mason-registry",
+        "lua:mason-registry.index"
+    },
 
     ui = {
         icons = {
@@ -13,6 +12,12 @@ require("mason").setup({
             package_pending = "➜",
             package_uninstalled = "✗"
         }
+    }
+})
+
+require("mason-lspconfig").setup({
+    ensure_installed = {
+        'lua_ls',
     }
 })
 
