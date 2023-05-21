@@ -1,7 +1,6 @@
 local function config()
     require'nvim-treesitter.configs'.setup {
         ensure_installed = {
-            'apex',
             'bash',
             'c_sharp',
             'clojure',
