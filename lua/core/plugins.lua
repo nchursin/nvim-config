@@ -160,5 +160,12 @@ return require('packer').startup(function(use)
         "ianding1/leetcode.vim",
     }
 
+    -- db
+    use {
+    --     'nanotee/sqls.nvim'
+        'tpope/vim-dadbod',
+        'kristijanhusak/vim-dadbod-ui',
+    }
+
 end)
 
