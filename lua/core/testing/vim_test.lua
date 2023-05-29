@@ -13,3 +13,5 @@ vim.g['test#javascript#runner'] = 'mocha'
 -- vim.g['test#javascript#runner'] = 'webdriverio'
 vim.g['test#python#runner'] = 'pytest'
 
+vim.g['test#go#gotest#executable'] = 'grc go test'
+

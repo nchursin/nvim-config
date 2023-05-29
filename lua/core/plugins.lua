@@ -74,6 +74,14 @@ return require('packer').startup(function(use)
     use 'PhilRunninger/nerdtree-visual-selection'
 
     use {
+        'BurntSushi/ripgrep',
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            run = 'make'
+        }
+    }
+
+    use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} },
     }
@@ -89,6 +97,12 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim',
         tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
+    use {
+        'tpope/vim-fugitive'
+    }
+	use {
+		'APZelos/blamer.nvim'
+	}
 
     -- Javascript/Typescript
 
@@ -166,6 +180,11 @@ return require('packer').startup(function(use)
         'tpope/vim-dadbod',
         'kristijanhusak/vim-dadbod-ui',
     }
+
+	use {
+		'echasnovski/mini.nvim',
+		branch = 'stable',
+	}
 
 end)
 

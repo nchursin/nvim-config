@@ -1,3 +1,4 @@
+local cmd = vim.cmd
 local map = vim.api.nvim_set_keymap
 local lsp = vim.lsp
 local api = vim.api
@@ -64,3 +65,15 @@ for _, lspInstance in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+cmd[[
+augroup LspBuf
+  au!
+  autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'bufls',
+      \ 'cmd': {server_info->['bufls', 'serve']},
+      \ 'whitelist': ['proto'],
+      \ })
+  autocmd FileType proto nmap <buffer> gd <plug>(lsp-definition)
+augroup END
+]]

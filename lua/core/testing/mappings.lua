@@ -18,7 +18,8 @@ local cmd = vim.cmd
 map('n', 'tn', ':TestNearest<CR>', { noremap = false })
 map('n', 'tf', ':TestFile<CR>', { noremap = false })
 map('n', 'tl', ':TestLast<CR>', { noremap = false })
-map('n', 'td', ':call DebugNearest<CR>', { noremap = false })
+map('n', 'tdn', ':call DebugNearest()<CR>', { noremap = false })
+map('n', 'tdl', ':call DebugLast()<CR>', { noremap = false })
 map('n', 'ts', ':TestSuite<CR>', { noremap = false })
 map('n', 'tg', ':TestVisit<CR>', { noremap = false })
 

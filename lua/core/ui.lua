@@ -35,7 +35,7 @@ cmd([[
 -- set autoindent
 -- set cindent
 -- set smartindent
-set_option('expandtab', true)
+set_option('expandtab', false)
 set_option('tabstop', 4)
 set_option('softtabstop', 4)
 set_option('shiftwidth', 4)
