@@ -29,7 +29,7 @@ local servers = {
     'yamlls',
 }
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -53,10 +53,12 @@ local on_attach = function(_, bufnr)
     -- print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end, bufopts)
   -- map('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  map('n', '<space>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', bufopts)
-  map('n', '<space>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
+  map('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', bufopts)
+  map('n', '<leader>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
   map('n', 'gr', '<cmd> lua vim.lsp.buf.references()<CR>', bufopts)
-  map('n', '<space>f', '<cmd> lua vim.lsp.buf.formatting()<CR>', bufopts)
+  -- map('n', '<space>f', '<cmd> lua vim.lsp.buf.formatting()<CR>', bufopts)
+
+  require("lsp-format").on_attach(client)
 end
 
 for _, lspInstance in ipairs(servers) do

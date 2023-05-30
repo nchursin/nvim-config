@@ -35,7 +35,7 @@ cmd([[
 -- set autoindent
 -- set cindent
 -- set smartindent
-set_option('expandtab', false)
+set_option('expandtab', true)
 set_option('tabstop', 4)
 set_option('softtabstop', 4)
 set_option('shiftwidth', 4)
@@ -43,4 +43,6 @@ set_option('shiftwidth', 4)
 -- Disable all bells and whistles
 set_option('errorbells', false)
 set_option('visualbell', false)
+
+set_option('updatetime', 1000)
 

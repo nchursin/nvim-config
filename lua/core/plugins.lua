@@ -15,6 +15,10 @@ return require('packer').startup(function(use)
         run = ':TSUpdate',
     }
 
+	use {
+		'hood/popui.nvim'
+	}
+
     -- completions
     -- Plug 'neovim/nvim-lspconfig'
     -- Plug 'hrsh7th/cmp-nvim-lsp'
@@ -50,6 +54,11 @@ return require('packer').startup(function(use)
         },
     }
 
+	-- fomratiing
+	use 'lukas-reineke/lsp-format.nvim'
+
+	-- codeactions
+	use 'kosayoda/nvim-lightbulb'
 
     -- Lua
     use "folke/lua-dev.nvim"
