@@ -55,7 +55,7 @@ local on_attach = function(client, bufnr)
   -- map('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   map('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', bufopts)
   map('n', '<leader>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
-  map('n', 'gr', '<cmd> lua vim.lsp.buf.references()<CR>', bufopts)
+  map('n', 'gr', '<cmd> lua vim.g.helpers.open_references()<CR>', bufopts)
   -- map('n', '<space>f', '<cmd> lua vim.lsp.buf.formatting()<CR>', bufopts)
 
   require("lsp-format").on_attach(client)
