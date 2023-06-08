@@ -194,5 +194,7 @@ return require('packer').startup(function(use)
 		branch = 'stable',
 	}
 
+    use 'Shatur/neovim-session-manager'
+
 end)
 
