@@ -3,6 +3,12 @@ local map = vim.api.nvim_set_keymap
 local lsp = vim.lsp
 local api = vim.api
 
+local bufopts = {
+  noremap=true,
+  silent=true,
+  -- buffer=bufnr
+}
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(lsp.protocol.make_client_capabilities())
 
@@ -32,6 +38,9 @@ local servers = {
 local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  map('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', bufopts)
+  map('n', '<leader>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
 
   require("lsp-format").on_attach(client)
 end
