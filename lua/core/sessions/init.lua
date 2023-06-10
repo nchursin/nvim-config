@@ -22,14 +22,16 @@ session_manager.setup({
 })
 
 autocmd(
-  'BufWritePost',
+  'VimLeavePre',
   {
       group = config_group,
       callback = function ()
         if vim.bo.filetype ~= 'git'
         and not vim.bo.filetype ~= 'gitcommit'
         and not vim.bo.filetype ~= 'gitrebase'
-        then session_manager.autosave_session() end
+        then
+            session_manager.autosave_session()
+        end
     end
   }
 )
