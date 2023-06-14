@@ -48,7 +48,7 @@ ncvim.add_mappings({
     },
     {
         mode = 'n',
-        key_string = 'gi',
+        key_string = 'gr',
         command = '<cmd> lua vim.g.helpers.open_references()<CR>',
         options = bufopts,
     },
