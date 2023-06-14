@@ -1,12 +1,12 @@
 local autocmd = vim.api.nvim_create_autocmd
 local cmd = vim.cmd
 
-function get_path(str,sep)
+local function get_path(str,sep)
     sep=sep or'/'
     return str:match("(.*"..sep..")")
 end
 
-function file_exists(name)
+local function file_exists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
 end
@@ -16,10 +16,10 @@ autocmd(
 	{
 		pattern = '*',
 		callback = function(ev)
-			opened = ev.file
-			folder_opened = string.find(opened, 'NERD_tree')
+			local opened = ev.file
+			local folder_opened = string.find(opened, 'NERD_tree')
 			if folder_opened then
-				folder = get_path(opened)
+				local folder = get_path(opened)
 				local exist = file_exists(folder .. '.env.lua')
 				if exist then
 					cmd('source ' .. folder .. '.env.lua')

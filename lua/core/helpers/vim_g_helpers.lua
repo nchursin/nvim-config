@@ -1,3 +1,5 @@
+-- TODO: check if this is needed at all with telescope-ui-select
+
 local telescope = require('telescope.builtin')
 
 vim.g.helpers = {

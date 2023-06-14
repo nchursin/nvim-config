@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
     -- Lua
     use "folke/lua-dev.nvim"
     use "nvim-lua/plenary.nvim"
+    use "ii14/neorepl.nvim"
 
     -- Usability
     use 'easymotion/vim-easymotion'
@@ -92,6 +93,9 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} },
+    }
+    use {
+        'nvim-telescope/telescope-ui-select.nvim'
     }
 
     use {
