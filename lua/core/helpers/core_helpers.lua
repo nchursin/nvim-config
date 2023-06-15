@@ -1,7 +1,7 @@
-local map = require('utils.mappings_utils').map
+local map = vim.keymap.set
 
 ---@class KeyMapping
----@field mode string
+---@field mode string|string[]
 ---@field key_string string
 ---@field command string
 ---@param options? table<string, any>

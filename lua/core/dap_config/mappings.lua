@@ -55,7 +55,7 @@ ncvim.add_mappings({
     {
         mode = 'n',
         key_string = '<leader>dt',
-        command = ":lua require'dapui'.toggle() <CR>",
+        command = require'dapui'.toggle,
         options = default_opts,
     },
     {
