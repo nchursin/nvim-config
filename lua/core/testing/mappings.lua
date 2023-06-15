@@ -15,21 +15,77 @@ local cmd = vim.cmd
 -- map('n', 't<C-d>', ':call DebugNearest<CR>', { noremap = false })
 -- map('n', 't<C-s>', ':TestSuite<CR>', { noremap = false })
 -- map('n', 't<C-g>', ':TestVisit<CR>', { noremap = false })
-map('n', 'tn', ':TestNearest<CR>', { noremap = false })
-map('n', 'tf', ':TestFile<CR>', { noremap = false })
-map('n', 'tl', ':TestLast<CR>', { noremap = false })
-map('n', 'tdn', ':call DebugNearest()<CR>', { noremap = false })
-map('n', 'tdl', ':call DebugLast()<CR>', { noremap = false })
-map('n', 'ts', ':TestSuite<CR>', { noremap = false })
-map('n', 'tg', ':TestVisit<CR>', { noremap = false })
+ncvim.add_mappings{
+    {
+        mode = 'n',
+        key_string = 'tn',
+        command = ':TestNearest<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tf',
+        command = ':TestFile<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tl',
+        command = ':TestLast<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tdn',
+        command = ':call DebugNearest()<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tdl',
+        command = ':call DebugLast()<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'ts',
+        command = ':TestSuite<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tg',
+        command = ':TestVisit<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tcjw',
+        command = ':let g:test#javascript#runner="webdriverio"<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tcjm',
+        command = ':let g:test#javascript#runner="mocha"<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tcjj',
+        command = ':let g:test#javascript#runner="jest"<CR>',
+        options = { noremap = false },
+    },
+    {
+        mode = 'n',
+        key_string = 'tsj',
+        command = ':echo g:test#javascript#runner<CR>',
+        options = { noremap = false },
+    },
+}
 
 -- map('n', 'tcjw', ":lua set_js_runner('webdriverio')<CR>", { noremap = false })
 -- map('n', 'tcjm', ":lua set_js_runner('mocha')<CR>", { noremap = false })
-map('n', 'tcjw', ':let g:test#javascript#runner="webdriverio"<CR>', { noremap = false })
-map('n', 'tcjm', ':let g:test#javascript#runner="mocha"<CR>', { noremap = false })
-map('n', 'tcjj', ':let g:test#javascript#runner="jest"<CR>', { noremap = false })
-map('n', 'tsj', ':echo g:test#javascript#runner<CR>', { noremap = false })
-
 
 -- map('n', 't<C-n>', ':lua require("neotest").run.run()<CR>', { noremap = false })
 -- map('n', 't<C-f>', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', { noremap = false })
