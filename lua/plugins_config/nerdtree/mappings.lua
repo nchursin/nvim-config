@@ -1,11 +1,35 @@
-local mappings_utils = require('utils.mappings_utils')
-local map = mappings_utils.map
-local default_opts = mappings_utils.default_opts
+local default_opts = require('utils.mappings_utils').default_opts
 
 -- NerdTREE nerdtree
-map('n', '<leader>n', ':NERDTreeFocus<CR>', default_opts)
-map('n', '<C-n>', ':NERDTreeFocus<CR>', default_opts)
-map('n', '<leader><C-n>', ':NERDTree<CR>', default_opts)
-map('n', '<C-t>', ':NERDTreeToggle<CR>', default_opts)
-map('n', '<C-f>', ':NERDTreeFind<CR>', default_opts)
-
+ncvim.add_mappings{
+    {
+        mode = 'n',
+        key_string = '<leader>n',
+        command = ':NERDTreeFocus<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<C-n>',
+        command = ':NERDTreeFocus<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<leader><C-n>',
+        command = ':NERDTree<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<C-t>',
+        command = ':NERDTreeToggle<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<C-f>',
+        command = ':NERDTreeFind<CR>',
+        options = default_opts,
+    },
+}

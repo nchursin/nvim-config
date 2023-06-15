@@ -3,10 +3,32 @@ local map = mappings_utils.map
 local default_opts = mappings_utils.default_opts
 
 -- treat long lines as multiple lines
-map('n', '<leader>ll', ':LeetCodeList<CR>', default_opts)
-map('n', '<leader>lt', ':LeetCodeTest<CR>', default_opts)
-map('n', '<leader>ls', ':LeetCodeSubmit<CR>', default_opts)
-map('n', '<leader>li', ':LeetCodeSignIn<CR>', default_opts)
+ncvim.add_mappings{
+    {
+        mode = 'n',
+        key_string = '<leader>ll',
+        command = ':LeetCodeList<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<leader>lt',
+        command = ':LeetCodeTest<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<leader>ls',
+        command = ':LeetCodeSubmit<CR>',
+        options = default_opts,
+    },
+    {
+        mode = 'n',
+        key_string = '<leader>li',
+        command = ':LeetCodeSignIn<CR>',
+        options = default_opts,
+    },
+}
 
 vim.g.leetcode_browser = 'chrome'
 vim.g.leetcode_hide_paid_only = 1

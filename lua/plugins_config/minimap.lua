@@ -1,13 +1,12 @@
-local mappings_utils = require('utils.mappings_utils')
-local map = mappings_utils.map
-local default_opts = mappings_utils.default_opts
+local default_opts = require('utils.mappings_utils').default_opts
 
-require('mini.map').setup()
-local MiniMap = require('mini.map')
+vim.g.minimap_auto_start = 0
 
-map('n', '<leader>mm', MiniMap.open, default_opts)
--- MiniMap.open()
--- MiniMap.refresh()
--- MiniMap.close()
--- MiniMap.toggle()
--- MiniMap.toggle_side()
+ncvim.add_mappings{
+    {
+        mode = 'n',
+        key_string = '<leader>mm',
+        command = ':MinimapToggle<CR>',
+        options = default_opts,
+    }
+}

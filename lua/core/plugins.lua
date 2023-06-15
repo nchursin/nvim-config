@@ -194,8 +194,7 @@ return require('packer').startup(function(use)
     }
 
 	use {
-		'echasnovski/mini.nvim',
-		branch = 'stable',
+		'wfxr/minimap.vim',
 	}
 
     use 'Shatur/neovim-session-manager'
