@@ -6,6 +6,9 @@ local map = vim.keymap.set
 ---@field command string
 ---@param options? table<string, any>
 
+---
+---Maission control for NcVim
+---
 ---@class NcVim
 ---@field mappings KeyMapping[]
 ncvim = {
@@ -17,9 +20,7 @@ local function is_non_empty_array(to_test)
 end
 
 ---
----Returns the number of elements in the table. This function is equivalent to `#list`.
----
----[View documents](http://www.lua.org/manual/5.1/manual.html#pdf-table.getn)
+---Adds keymappings to be set after everything else is loaded
 ---
 ---@param list_of_mappings KeyMapping[]
 ncvim.add_mappings = function(list_of_mappings)
