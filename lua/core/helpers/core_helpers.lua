@@ -6,17 +6,40 @@ local map = vim.keymap.set
 ---@field command string
 ---@param options? table<string, any>
 
+local themes = {
+  DARK = function()
+    vim.cmd([[
+        syntax enable
+        colorscheme onedark
+        highlight SignColumn guibg=Black
+        highlight SignColumn ctermbg=Black
+    ]])
+  end,
+  LIGHT = function()
+    vim.cmd([[
+        syntax enable
+        colorscheme PaperColor
+        set background=dark
+        highlight SignColumn guibg=Black
+        highlight SignColumn ctermbg=Black
+    ]])
+  end,
+}
 ---
 ---Maission control for NcVim
 ---
 ---@class NcVim
 ---@field mappings KeyMapping[]
+---@field enums table
+---@field theme function
 ncvim = {
-    mappings = {}
+  mappings = {},
+  themes = themes,
+  theme = themes.DARK,
 }
 
 local function is_non_empty_array(to_test)
-    return 0 ~= #to_test
+  return 0 ~= #to_test
 end
 
 ---
@@ -24,16 +47,16 @@ end
 ---
 ---@param list_of_mappings KeyMapping[]
 ncvim.add_mappings = function(list_of_mappings)
-    if not is_non_empty_array(list_of_mappings) then
-        return
-    end
-    for _, mapping in ipairs(list_of_mappings) do
-        table.insert(ncvim.mappings, mapping)
-    end
+  if not is_non_empty_array(list_of_mappings) then
+    return
+  end
+  for _, mapping in ipairs(list_of_mappings) do
+    table.insert(ncvim.mappings, mapping)
+  end
 end
 
 ncvim.apply_mappings = function()
-    for _, mapping in ipairs(ncvim.mappings) do
-        map(mapping.mode, mapping.key_string, mapping.command, mapping.options)
-    end
+  for _, mapping in ipairs(ncvim.mappings) do
+    map(mapping.mode, mapping.key_string, mapping.command, mapping.options)
+  end
 end

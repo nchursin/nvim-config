@@ -1,4 +1,4 @@
-local cmd = vim.cmd             -- execute Vim commands
+local cmd = vim.cmd -- execute Vim commands
 local set_option = vim.api.nvim_set_option
 
 -- Various UX
@@ -9,13 +9,17 @@ local set_option = vim.api.nvim_set_option
 -- long lines
 -- :set colorcolumn=120
 
+-- colorscheme onedark
+--
 -- Look and Feel settings
-cmd([[
-    syntax enable
-    colorscheme onedark
-    highlight SignColumn guibg=Black
-    highlight SignColumn ctermbg=Black
-]])
+-- cmd([[
+--     syntax enable
+--     colorscheme onedark
+--     highlight SignColumn guibg=Black
+--     highlight SignColumn ctermbg=Black
+-- ]])
+
+ncvim.theme = ncvim.themes.DARK
 
 -- line numbers
 set_option('number', true)
@@ -45,4 +49,3 @@ set_option('errorbells', false)
 set_option('visualbell', false)
 
 set_option('updatetime', 1000)
-
