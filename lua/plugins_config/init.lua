@@ -1,4 +1,3 @@
-require('plugins_config.mason')
 require('plugins_config.treesitter')
 require('plugins_config.lualine')
 require('plugins_config.nvim_comment')
