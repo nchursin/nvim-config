@@ -8,14 +8,9 @@
 
 ## TODO
 
-- [ ] dap support
-    - [x] debug tests go
-    - [ ] debug tests js
-        - [x] webdriver
-        - [x] mocha
-        - [ ] jest
+- [ ] How to configure NcVim
+- [ ] Ability to provide which-key description for custom key maps
 - [ ] lazy loading
-- [ ] adequate vim-like tabs
 - [ ] Mason Astro-like GUI
 - [ ] Astro-like notifications
 - [ ] Astro-like dashboard
