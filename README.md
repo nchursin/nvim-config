@@ -9,6 +9,7 @@
 ## TODO
 
 - [ ] How to configure NcVim
+- [ ] Session picker as telescope picker, not ui-select
 - [ ] Ability to provide which-key description for custom key maps
 - [ ] lazy loading
 - [ ] Mason Astro-like GUI
