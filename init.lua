@@ -1,6 +1,4 @@
 require('preload')
 require('core')
 require('plugins_config')
-
-ncvim.apply_mappings()
-ncvim.theme()
+require('setup_ncvim')
