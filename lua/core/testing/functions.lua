@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-cmd[[
+cmd [[
 	function! DebugNearest()
 	  let g:test#go#runner = 'delve'
 	  lua require('dap-go').debug_test()
@@ -13,4 +13,3 @@ cmd[[
 	  unlet g:test#go#runner
 	endfunction
 ]]
-

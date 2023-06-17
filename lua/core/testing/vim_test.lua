@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-cmd[[
+cmd [[
 let test#javascript#mocha#file_pattern = '\v((test|spec)s?/.*|(spec))\.(js|jsx|coffee|ts)$'
 let test#javascript#webdriverio#file_pattern = '\v((test|spec)s?/.*|(test|spec))\.(js|jsx|coffee|ts)$'
 ]]
@@ -14,4 +14,3 @@ vim.g['test#javascript#runner'] = 'mocha'
 vim.g['test#python#runner'] = 'pytest'
 
 vim.g['test#go#gotest#executable'] = 'grc go test'
-

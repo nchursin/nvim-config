@@ -1,5 +1,5 @@
 local function config()
-    require('nvim_comment').setup()
+  require('nvim_comment').setup()
 end
 
 config()

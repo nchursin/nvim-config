@@ -1,4 +1,4 @@
-local dap = require'dap'
+local dap = require 'dap'
 
 require('dap-go').setup({})
 
@@ -7,7 +7,7 @@ dap.adapters.delve = {
   port = '${port}',
   executable = {
     command = 'dlv',
-    args = {'dap', '-l', '127.0.0.1:${port}'},
+    args = { 'dap', '-l', '127.0.0.1:${port}' },
   }
 }
 

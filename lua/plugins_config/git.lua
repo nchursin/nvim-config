@@ -3,13 +3,13 @@ local map = mappings_utils.map
 local default_opts = mappings_utils.default_opts
 
 -- fugitive
-ncvim.add_mappings{
-    {
-        mode = 'n',
-        key_string = '<leader>gb',
-        command = ':Git blame<CR>',
-        options = default_opts,
-    }
+ncvim.add_mappings {
+  {
+    mode = 'n',
+    key_string = '<leader>gb',
+    command = ':Git blame<CR>',
+    options = default_opts,
+  }
 }
 
 -- blamer

@@ -30,7 +30,7 @@ require("dapui").setup({
   layouts = {
     {
       elements = {
-      -- Elements can be strings or table with id and size keys.
+        -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "breakpoints",
         "stacks",
@@ -65,8 +65,8 @@ require("dapui").setup({
     },
   },
   floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
+    max_height = nil,  -- These can be integers or a float between 0 and 1.
+    max_width = nil,   -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -91,5 +91,5 @@ end
 -- end
 
 -- https://github.com/hood/popui.nvim
-vim.ui.select = require"popui.ui-overrider"
-vim.ui.input = require"popui.input-overrider"
+vim.ui.select = require "popui.ui-overrider"
+vim.ui.input = require "popui.input-overrider"
