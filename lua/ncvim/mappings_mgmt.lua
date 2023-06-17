@@ -6,38 +6,6 @@ local map = vim.keymap.set
 ---@field command string
 ---@param options? table<string, any>
 
-local themes = {
-  DARK = function()
-    vim.cmd([[
-        syntax enable
-        colorscheme onedark
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
-    ]])
-  end,
-  LIGHT = function()
-    vim.cmd([[
-        syntax enable
-        colorscheme PaperColor
-        set background=dark
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
-    ]])
-  end,
-}
----
----Maission control for NcVim
----
----@class NcVim
----@field mappings KeyMapping[]
----@field enums table
----@field theme function
-ncvim = {
-  mappings = {},
-  themes = themes,
-  theme = themes.DARK,
-}
-
 local function is_non_empty_array(to_test)
   return 0 ~= #to_test
 end

@@ -67,7 +67,7 @@ return require('packer').startup(function(use)
 
   -- Usability
   use 'easymotion/vim-easymotion'
-  use 'tpope/vim-surround'   -- braces thing
+  use 'tpope/vim-surround' -- braces thing
   -- use 'vim-airline/vim-airline' -- info line
   use {
     'nvim-lualine/lualine.nvim',
@@ -108,7 +108,7 @@ return require('packer').startup(function(use)
   -- Git
   use {
     'lewis6991/gitsigns.nvim',
-    tag = 'release'     -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
   use {
     'tpope/vim-fugitive'
@@ -198,6 +198,4 @@ return require('packer').startup(function(use)
   use {
     'wfxr/minimap.vim',
   }
-
-  use 'Shatur/neovim-session-manager'
 end)
