@@ -2,7 +2,6 @@ ncvim.plugin({
   'mfussenegger/nvim-dap',
   requires = {
     "rcarriga/nvim-dap-ui",
-    'hood/popui.nvim',
   },
   config = function()
     local dap_config = require('ncvim.core_plugins.debug.config')
