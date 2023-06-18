@@ -1,3 +1,4 @@
 *.bak*
 plugin/
 .luarc.json
+lua/custom/*
