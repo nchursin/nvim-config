@@ -1,4 +1,8 @@
-# nchursin neovim config
+# NcVim
+
+## What is this?
+
+My own Neovim config. The main thing I don't like in AstroNvim and others is that they tend to be more usual IDEs -like. I'm pretty used to Vim hotkeys, so I created my own config with little overrides. E.g. to save a file you still need to do `:w`. And if you like you can bind it to a hotkey.
 
 ## Installation
 

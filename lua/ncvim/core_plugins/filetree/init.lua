@@ -1,4 +1,4 @@
-local default_opts = require('utils.mappings_utils').default_opts
+local silent_noremap = { noremap = true, silent = true }
 
 ncvim.plugin({
   'preservim/nerdtree',
@@ -16,30 +16,30 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader>n',
     command = ':NERDTreeFocus<CR>',
-    options = default_opts,
+    options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<C-n>',
     command = ':NERDTreeFocus<CR>',
-    options = default_opts,
+    options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<leader><C-n>',
     command = ':NERDTree<CR>',
-    options = default_opts,
+    options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<C-t>',
     command = ':NERDTreeToggle<CR>',
-    options = default_opts,
+    options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<C-f>',
     command = ':NERDTreeFind<CR>',
-    options = default_opts,
+    options = silent_noremap,
   },
 }

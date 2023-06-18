@@ -1,4 +1,4 @@
-local default_opts = require('utils.mappings_utils').default_opts
+local silent_noremap = { noremap = true, silent = true }
 
 ncvim.plugin({
   {
@@ -15,7 +15,7 @@ ncvim.plugin({
   },
   {
     'lewis6991/gitsigns.nvim',
-    tag = 'release'         -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   },
 })
 
@@ -24,6 +24,6 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader>gb',
     command = ':Git blame<CR>',
-    options = default_opts,
+    options = silent_noremap,
   }
 }

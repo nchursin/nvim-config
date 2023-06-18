@@ -1,4 +1,4 @@
-local default_opts = require('utils.mappings_utils').default_opts
+local silent_nooremap = { noremap = true, silent = true }
 
 vim.g.mapleader = ' '
 
@@ -23,7 +23,7 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader><C-t>',
     command = ':split<CR><C-w>j:term<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
   -- exit i mode in terminal
   {
@@ -38,34 +38,34 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader>/',
     command = ':noh<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
   -- " source %
   {
     mode = 'n',
     key_string = '<leader><C-s>',
     command = ':source %<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
   -- " reload current file
   {
     mode = 'n',
     key_string = '<leader><C-r>',
     command = ':edit!<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
   -- " open current file in new tab (e.g. for copy mode)
   {
     mode = 'n',
     key_string = '<leader>tt',
     command = ':tabe %<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
   -- " switch between relative and absolute line numbers
   {
     mode = 'n',
     key_string = '<C-n><C-n>',
     command = ':set relativenumber!<CR>',
-    options = default_opts,
+    options = silent_nooremap,
   },
 }

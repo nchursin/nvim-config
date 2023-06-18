@@ -5,13 +5,13 @@ ncvim.plugin({
   end
 })
 
-local default_opts = require('utils.mappings_utils').default_opts
+local silent_noremap = { noremap = true, silent = true }
 
 ncvim.add_mappings {
   {
     mode = 'n',
     key_string = '<leader>mm',
     command = ':MinimapToggle<CR>',
-    options = default_opts,
+    options = silent_noremap,
   }
 }
