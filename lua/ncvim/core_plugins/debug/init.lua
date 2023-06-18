@@ -12,5 +12,4 @@ ncvim.plugin({
   ,
 })
 
-require('ncvim.core_plugins.debug.adapters')
 require('ncvim.core_plugins.debug.mappings')

@@ -1,5 +1,9 @@
-local files = vim.fn.readdir(vim.fn.stdpath('config') .. '/lua/custom', [[v:val =~ '\.lua$']])
+local files = vim.fn.readdir(
+  vim.fn.stdpath('config') .. '/lua/custom'
+)
 
 for _, file in ipairs(files) do
-  require('custom.' .. file:gsub('%.lua$', ''))
+  if '.gitkeep' ~= file then
+    require('custom.' .. file:gsub('%.lua$', ''))
+  end
 end
