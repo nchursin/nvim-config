@@ -2,19 +2,20 @@
 
 local telescope = require('telescope.builtin')
 
-vim.g.helpers = {
-  open_references = function()
-    -- vim.lsp.buf.references()
+ncvim.lsp = {
+  references = function()
     telescope.lsp_references()
   end,
 
-  open_implementations = function()
-    -- vim.lsp.buf.implementation()
+  implementations = function()
     telescope.lsp_implementations()
   end,
 
-  open_definitions = function()
-    -- vim.lsp.buf.definition()
+  definitions = function()
     telescope.lsp_definitions()
+  end,
+
+  signature_help = function()
+    vim.lsp.buf.signature_help()
   end,
 }

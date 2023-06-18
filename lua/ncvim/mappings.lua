@@ -1,4 +1,4 @@
-local silent_nooremap = { noremap = true, silent = true }
+local silent_noremap = { noremap = true, silent = true }
 
 vim.g.mapleader = ' '
 
@@ -23,7 +23,7 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader><C-t>',
     command = ':split<CR><C-w>j:term<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
   },
   -- exit i mode in terminal
   {
@@ -38,34 +38,71 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = '<leader>/',
     command = ':noh<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
   },
   -- " source %
   {
     mode = 'n',
     key_string = '<leader><C-s>',
     command = ':source %<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
   },
   -- " reload current file
   {
     mode = 'n',
     key_string = '<leader><C-r>',
     command = ':edit!<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
   },
   -- " open current file in new tab (e.g. for copy mode)
   {
     mode = 'n',
     key_string = '<leader>tt',
     command = ':tabe %<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
   },
   -- " switch between relative and absolute line numbers
   {
     mode = 'n',
     key_string = '<C-n><C-n>',
     command = ':set relativenumber!<CR>',
-    options = silent_nooremap,
+    options = silent_noremap,
+  },
+
+  {
+    mode = 'n',
+    key_string = 'gd',
+    command = ncvim.lsp.definitions,
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gsd',
+    command = '<C-w>v<cmd> lua ncvim.lsp.definitions()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = '<C-k>',
+    command = ncvim.lsp.signature_help,
+    options = silent_noremap,
+  },
+  {
+    mode = 'i',
+    key_string = '<C-k>',
+    command = ncvim.lsp.signature_help,
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gi',
+    command = ncvim.lsp.implementations,
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gr',
+    command = ncvim.lsp.references,
+    options = silent_noremap,
   },
 }
