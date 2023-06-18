@@ -1,22 +1,12 @@
-local themes = {
-  DARK = function()
-    vim.cmd([[
-        syntax enable
-        colorscheme onedark
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
-    ]])
-  end,
-  LIGHT = function()
-    vim.cmd([[
-        syntax enable
-        colorscheme PaperColor
-        set background=dark
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
-    ]])
-  end,
-}
+local cmd = vim.cmd
+
+cmd [[packadd packer.nvim]]
+
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use 'lewis6991/impatient.nvim'
+end)
+
 ---
 ---Mission control for NcVim
 ---
@@ -26,10 +16,9 @@ local themes = {
 ---@field packer_bootstrap boolean
 ---@field enums table
 ---@field theme function
+---@field functions table
 ncvim = {
   mappings = {},
   plugins = {},
   packer_bootstrap = false,
-  themes = themes,
-  theme = themes.DARK,
 }

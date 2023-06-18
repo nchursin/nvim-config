@@ -1,0 +1,8 @@
+require('ncvim.core_plugins.lua')
+require('ncvim.core_plugins.lsp')
+require('ncvim.core_plugins.highlight')
+require('ncvim.core_plugins.filetree')
+require('ncvim.core_plugins.testing')
+require('ncvim.core_plugins.debug')
+require('ncvim.core_plugins.sessions')
+require('ncvim.core_plugins.misc')

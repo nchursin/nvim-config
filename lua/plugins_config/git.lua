@@ -1,19 +1,19 @@
-local mappings_utils = require('utils.mappings_utils')
-local map = mappings_utils.map
-local default_opts = mappings_utils.default_opts
-
--- fugitive
-ncvim.add_mappings {
-  {
-    mode = 'n',
-    key_string = '<leader>gb',
-    command = ':Git blame<CR>',
-    options = default_opts,
-  }
-}
-
--- blamer
-vim.g.blamer_enabled = 1
-vim.g.blamer_show_in_insert_modes = 0
-vim.g.blamer_template = '<commit-short> - <author>, <author-time>: <summary>'
-vim.g.blamer_delay = 500
+-- local mappings_utils = require('utils.mappings_utils')
+-- local map = mappings_utils.map
+-- local default_opts = mappings_utils.default_opts
+--
+-- -- fugitive
+-- ncvim.add_mappings {
+--   {
+--     mode = 'n',
+--     key_string = '<leader>gb',
+--     command = ':Git blame<CR>',
+--     options = default_opts,
+--   }
+-- }
+--
+-- -- blamer
+-- -- vim.g.blamer_enabled = 1
+-- -- vim.g.blamer_show_in_insert_modes = 0
+-- -- vim.g.blamer_template = '<commit-short> - <author>, <author-time>: <summary>'
+-- -- vim.g.blamer_delay = 500

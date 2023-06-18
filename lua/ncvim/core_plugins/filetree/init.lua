@@ -1,5 +1,16 @@
 local default_opts = require('utils.mappings_utils').default_opts
 
+ncvim.plugin({
+  'preservim/nerdtree',
+  requires = {
+    'ryanoasis/vim-devicons',
+    'PhilRunninger/nerdtree-visual-selection'
+  },
+  config = function()
+    vim.g.NERDTreeShowHidden = 1
+  end
+})
+
 ncvim.add_mappings {
   {
     mode = 'n',

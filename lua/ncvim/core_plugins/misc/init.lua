@@ -1,0 +1,6 @@
+require('ncvim.core_plugins.misc.surround')
+require('ncvim.core_plugins.misc.which_key')
+require('ncvim.core_plugins.misc.easymotion')
+require('ncvim.core_plugins.misc.autopairs')
+require('ncvim.core_plugins.misc.minimap')
+require('ncvim.core_plugins.misc.git')
