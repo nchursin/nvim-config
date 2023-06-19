@@ -30,12 +30,6 @@ return function()
     }
   })
 
-  require("mason-lspconfig").setup({
-    ensure_installed = {
-      'lua_ls',
-    }
-  })
-
   local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -46,39 +40,44 @@ return function()
     require("lsp-format").on_attach(client)
   end
 
-  require("mason-lspconfig").setup_handlers({
-    function(server_name)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-      }
-    end,
+  require("mason-lspconfig").setup({
+    ensure_installed = {
+      'lua_ls',
+    },
+    handlers = {
+      function(server_name)
+        lspconfig[server_name].setup {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }
+      end,
 
-    ['lua_ls'] = function()
-      lspconfig.lua_ls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            runtime = {
-              -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-              version = 'LuaJIT',
-            },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = { 'vim' },
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-              enable = false,
+      ['lua_ls'] = function()
+        lspconfig.lua_ls.setup {
+          on_attach = on_attach,
+          capabilities = capabilities,
+          settings = {
+            Lua = {
+              runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+              },
+              diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { 'vim' },
+              },
+              workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              -- Do not send telemetry data containing a randomized but unique identifier
+              telemetry = {
+                enable = false,
+              },
             },
           },
-        },
-      }
-    end
+        }
+      end
+    }
   })
 end
