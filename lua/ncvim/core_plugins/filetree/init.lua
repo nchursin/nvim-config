@@ -14,32 +14,26 @@ ncvim.plugin({
 ncvim.add_mappings {
   {
     mode = 'n',
-    key_string = '<leader>n',
-    command = ':NERDTreeFocus<CR>',
-    options = silent_noremap,
-  },
-  {
-    mode = 'n',
     key_string = '<C-n>',
-    command = ':NERDTreeFocus<CR>',
+    command = ncvim.filetree.focus,
     options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<leader><C-n>',
-    command = ':NERDTree<CR>',
+    command = ncvim.filetree.restart,
     options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<C-t>',
-    command = ':NERDTreeToggle<CR>',
+    command = ncvim.filetree.toggle,
     options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<C-f>',
-    command = ':NERDTreeFind<CR>',
+    command = ncvim.filetree.current_file,
     options = silent_noremap,
   },
 }

@@ -19,3 +19,21 @@ ncvim.lsp = {
     vim.lsp.buf.signature_help()
   end,
 }
+
+ncvim.filetree = {
+  toggle = function()
+    vim.cmd 'NERDTreeToggle'
+  end,
+
+  focus = function()
+    vim.cmd 'NERDTreeFocus'
+  end,
+
+  current_file = function()
+    vim.cmd 'NERDTreeFind'
+  end,
+
+  restart = function()
+    vim.cmd 'NERDTree'
+  end,
+}
