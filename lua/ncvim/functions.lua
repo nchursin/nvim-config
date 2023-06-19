@@ -2,6 +2,14 @@
 
 local telescope = require('telescope.builtin')
 
+ncvim.config = {
+  path = vim.fn.stdpath('config'),
+
+  open = function()
+    vim.cmd('cd ' .. ncvim.config.path)
+  end
+}
+
 ncvim.lsp = {
   references = function()
     telescope.lsp_references()
