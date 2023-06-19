@@ -50,6 +50,7 @@ ncvim.plugin({
     }
     dashboard.section.buttons.val = {
       dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+      dashboard.button("f", "󰉋 Go to folder", ":lua ncvim.filetree.focus()<CR>:2q<CR>"),
       dashboard.button("s", "󰍛 Sessions", ":SessionManager load_session<CR>"),
       dashboard.button("m", " LSP/Linters/Formatters", ":Mason<CR>"),
       dashboard.button("p", " Packages Update (PackerSync)", ":PackerSync<CR>"),
