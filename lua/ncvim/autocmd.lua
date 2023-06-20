@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local cmd = vim.cmd
+local path = require('plenary.path')
 
 local function get_path(str, sep)
   sep = sep or '/'
@@ -16,21 +16,33 @@ local function file_exists(name)
   end
 end
 
+ncvim.source_env = function()
+  local opened = vim.fn.getcwd()
+  local env_path = path.new(opened, '.env.lua')
+  local exist = path.is_file(env_path)
+  if exist then
+    vim.cmd('source ' .. path.expand(env_path))
+  end
+end
+
 autocmd(
-  'VimEnter',
+  {
+    'DirChanged',
+    'VimEnter',
+  },
   {
     pattern = '*',
-    callback = function(ev)
-      local opened = ev.file
-      local folder_opened = string.find(opened, 'NERD_tree')
-      if folder_opened then
-        local folder = get_path(opened)
-        local exist = file_exists(folder .. '.env.lua')
-        if exist then
-          cmd('source ' .. folder .. '.env.lua')
-        end
-      end
-    end,
+    callback = ncvim.source_env,
+  }
+)
+
+autocmd(
+  {
+    'User'
+  },
+  {
+    pattern = 'SessionLoadPost',
+    callback = ncvim.source_env,
   }
 )
 
