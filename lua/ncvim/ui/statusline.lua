@@ -6,4 +6,7 @@ ncvim.plugin({
       opt = true,
     }
   },
+  config = function()
+    require('lualine').setup({})
+  end
 })
