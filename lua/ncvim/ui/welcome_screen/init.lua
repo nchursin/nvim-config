@@ -60,7 +60,7 @@ ncvim.plugin({
       table.insert(buttons,
         dashboard.button("l", "󰦖 Load Current Dir Session", ":SessionManager load_current_dir_session<CR>"))
     end
-    table.insert(buttons, dashboard.button("s", "󱣹 Sessions", ":SessionManager load_session<CR>"))
+    table.insert(buttons, dashboard.button("s", "󱣹 Sessions", ":lua ncvim.pickers.sessions()<CR>"))
     table.insert(buttons, dashboard.button("m", " LSP/Linters/Formatters", ":Mason<CR>"))
     table.insert(buttons, dashboard.button("p", " Packages Update (PackerSync)", ":PackerSync<CR>"))
     table.insert(buttons,

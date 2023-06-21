@@ -17,8 +17,14 @@ end)
 ---@field enums table
 ---@field theme function
 ---@field functions table
+---@field pickers table
 ncvim = {
   mappings = {},
   plugins = {},
   packer_bootstrap = false,
+  pickers = {
+    sessions = function()
+      print('not implemented')
+    end
+  }
 }

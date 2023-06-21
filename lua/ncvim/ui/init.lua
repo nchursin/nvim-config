@@ -31,6 +31,7 @@ set_option('visualbell', false)
 set_option('updatetime', 1000)
 
 require('ncvim.ui.themes')
+require('ncvim.ui.ui_select')
 require('ncvim.ui.telescope')
 require('ncvim.ui.statusline')
 require('ncvim.ui.bufferline')
