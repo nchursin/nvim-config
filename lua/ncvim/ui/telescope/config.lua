@@ -16,6 +16,7 @@ return function()
           -- e.g. git_{create, delete, ...}_branch for the git_branches picker
           ["<C-h>"] = "which_key",
           ["X"] = "delete_session",
+          ["dd"] = "delete_buffer",
         }
       }
     },
