@@ -15,7 +15,7 @@ return function()
           -- actions.which_key shows the mappings for your picker,
           -- e.g. git_{create, delete, ...}_branch for the git_branches picker
           ["<C-h>"] = "which_key",
-          -- ["x"] = "remove_selection",
+          ["X"] = "delete_session",
         }
       }
     },
@@ -38,6 +38,7 @@ return function()
       prompt_title = "Load Session",
       finder = finders.new_table {
         results = sessions,
+        -- fn = session_manager_utils.get_sessions,
         entry_maker = function(session_info)
           return make_entry.set_default_entry_mt({
             value = session_info.filename,
@@ -60,14 +61,14 @@ return function()
             session_manager_utils.load_session(selection.value, true)
           end
         )
-        -- actions.remove_selection:replace(
-        --   function()
-        --     local selection = action_state.get_selected_entry()
-        --     local current_picker = action_state.get_current_picker(prompt_bufnr)
-        --     current_picker:remove_selection(current_picker:get_selection_row())
-        --     Path:new(selection.value):rm()
-        --   end
-        -- )
+        actions.delete_session = (
+          function()
+            local current_picker = action_state.get_current_picker(prompt_bufnr)
+            current_picker:delete_selection(function(selection)
+              Path:new(selection.value):rm()
+            end)
+          end
+        )
         return true
       end,
 
