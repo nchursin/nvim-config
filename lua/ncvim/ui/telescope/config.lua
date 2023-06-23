@@ -15,7 +15,6 @@ return function()
           -- actions.which_key shows the mappings for your picker,
           -- e.g. git_{create, delete, ...}_branch for the git_branches picker
           ["<C-h>"] = "which_key",
-          ["X"] = "delete_session",
           ["dd"] = "delete_buffer",
         }
       }
@@ -35,7 +34,7 @@ return function()
   ncvim.pickers.sessions = function()
     local sessions = session_manager_utils.get_sessions()
 
-    require('telescope.pickers').new({}, {
+    require('telescope.pickers').new({
       prompt_title = "Load Session",
       finder = finders.new_table {
         results = sessions,
@@ -62,7 +61,7 @@ return function()
             session_manager_utils.load_session(selection.value, true)
           end
         )
-        actions.delete_session = (
+        actions.delete_buffer:replace(
           function()
             local current_picker = action_state.get_current_picker(prompt_bufnr)
             current_picker:delete_selection(function(selection)
@@ -73,7 +72,7 @@ return function()
         return true
       end,
 
-    }):find()
+    }, {}):find()
   end
   require('telescope').load_extension('dap')
   -- require('telescope').load_extension('ui-select')
