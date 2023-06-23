@@ -101,8 +101,20 @@ ncvim.add_mappings {
   },
   {
     mode = 'n',
+    key_string = 'gsi',
+    command = '<C-w>v<cmd> lua ncvim.lsp.implementations()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
     key_string = 'gr',
     command = ncvim.lsp.references,
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gsr',
+    command = '<C-w>v<cmd> lua ncvim.lsp.references()<CR>',
     options = silent_noremap,
   },
 }
