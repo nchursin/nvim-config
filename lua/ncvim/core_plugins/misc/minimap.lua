@@ -1,8 +1,16 @@
 ncvim.plugin({
-  'wfxr/minimap.vim',
-  config = function()
-    vim.g.minimap_auto_start = 0
-  end
+  {
+    'wfxr/minimap.vim',
+    config = function()
+      vim.g.minimap_auto_start = 0
+    end
+  },
+  {
+    'simrat39/symbols-outline.nvim',
+    config = function()
+      require("symbols-outline").setup()
+    end
+  }
 })
 
 local silent_noremap = { noremap = true, silent = true }
@@ -13,5 +21,11 @@ ncvim.add_mappings {
     key_string = '<leader>mm',
     command = ':MinimapToggle<CR>',
     options = silent_noremap,
-  }
+  },
+  {
+    mode = 'n',
+    key_string = '<leader>ss',
+    command = ':SymbolsOutline<CR>',
+    options = silent_noremap,
+  },
 }
