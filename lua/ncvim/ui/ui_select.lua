@@ -13,6 +13,7 @@ ncvim.plugin({
                 backend = 'builtin',
                 builtin = {
                   relative = 'cursor',
+                  min_height = { 1, 0 },
                 }
               }
             end
