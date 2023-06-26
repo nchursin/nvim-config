@@ -8,7 +8,15 @@ ncvim.plugin({
   {
     'simrat39/symbols-outline.nvim',
     config = function()
-      require("symbols-outline").setup()
+      require("symbols-outline").setup({
+        keymaps = {
+          close = "q",
+          fold = "f",
+          unfold = "e",
+          fold_all = "F",
+          unfold_all = "E",
+        }
+      })
     end
   }
 })
@@ -24,7 +32,7 @@ ncvim.add_mappings {
   },
   {
     mode = 'n',
-    key_string = '<leader>ss',
+    key_string = '<leader>s',
     command = ':SymbolsOutline<CR>',
     options = silent_noremap,
   },
