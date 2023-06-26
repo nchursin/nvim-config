@@ -1,9 +1,26 @@
 ncvim.plugin({
-  'hood/popui.nvim',
-  config = function()
-    vim.ui.input = require "popui.input-overrider"
-    vim.ui.select = require "popui.ui-overrider"
-  end
+  {
+    'hood/popui.nvim',
+  },
+  {
+    'stevearc/dressing.nvim',
+    config = function()
+      require('dressing').setup({
+        select = {
+          get_config = function(opts)
+            if opts.kind == 'codeaction' then
+              return {
+                backend = 'builtin',
+                builtin = {
+                  relative = 'cursor',
+                }
+              }
+            end
+          end
+        }
+      })
+    end
+  },
 })
 
 ncvim.add_mappings({
