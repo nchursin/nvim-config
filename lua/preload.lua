@@ -9,9 +9,9 @@ local ensure_packer = function()
   return false
 end
 
-ncvim.packer_bootstrap = ensure_packer()
+local packer_bootstrap = ensure_packer()
 
-if ncvim.packer_bootstrap then
+if packer_bootstrap then
   require('core.plugins')
   require('packer').sync()
 end
