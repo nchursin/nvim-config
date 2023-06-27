@@ -1,6 +1,10 @@
 ncvim.plugin({
-  'joshdick/onedark.vim',
-  'NLKNguyen/papercolor-theme',
+  {
+    'joshdick/onedark.vim',
+  },
+  {
+    'NLKNguyen/papercolor-theme',
+  },
 })
 
 local themes = {
