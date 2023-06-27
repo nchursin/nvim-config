@@ -1,22 +1,7 @@
 local autocmd = ncvim.add_autocmd
-local path = require('plenary.path')
-
-local function get_path(str, sep)
-  sep = sep or '/'
-  return str:match("(.*" .. sep .. ")")
-end
-
-local function file_exists(name)
-  local f = io.open(name, "r")
-  if f ~= nil then
-    io.close(f)
-    return true
-  else
-    return false
-  end
-end
 
 ncvim.source_env = function()
+  local path = require('plenary.path')
   local opened = vim.fn.getcwd()
   local env_path = path.new(opened, '.env.lua')
   local exist = path.is_file(env_path)
