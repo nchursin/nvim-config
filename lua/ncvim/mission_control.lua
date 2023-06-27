@@ -1,12 +1,3 @@
-local cmd = vim.cmd
-
-cmd [[packadd packer.nvim]]
-
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'lewis6991/impatient.nvim'
-end)
-
 ---
 ---Mission control for NcVim
 ---
@@ -19,6 +10,14 @@ end)
 ---@field functions table
 ---@field pickers table
 ncvim = {
+  config_packer = function()
+    vim.cmd 'packadd packer.nvim'
+
+    require('packer').startup(function(use)
+      use 'wbthomason/packer.nvim'
+      use 'lewis6991/impatient.nvim'
+    end)
+  end,
   mappings = {},
   plugins = {},
   packer_bootstrap = false,
