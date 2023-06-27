@@ -25,5 +25,19 @@ ncvim = {
     sessions = function()
       print('not implemented')
     end
-  }
+  },
+  autocmds = {},
 }
+
+ncvim.add_autocmd = function(events, config)
+  table.insert(ncvim.autocmds, {
+    events = events,
+    opts = config,
+  })
+end
+
+ncvim.create_autocmds = function()
+  for _, autocmd in ipairs(ncvim.autocmds) do
+    vim.api.nvim_create_autocmd(autocmd.events, autocmd.opts)
+  end
+end

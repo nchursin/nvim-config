@@ -2,7 +2,6 @@ ncvim.plugin({
   'Shatur/neovim-session-manager',
   config = function()
     local Path = require('plenary.path')
-    local autocmd = vim.api.nvim_create_autocmd
 
     local session_manager = require('session_manager')
     local config = require('session_manager.config')

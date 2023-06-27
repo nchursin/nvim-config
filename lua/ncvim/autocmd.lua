@@ -1,4 +1,4 @@
-local autocmd = vim.api.nvim_create_autocmd
+local autocmd = ncvim.add_autocmd
 local path = require('plenary.path')
 
 local function get_path(str, sep)
