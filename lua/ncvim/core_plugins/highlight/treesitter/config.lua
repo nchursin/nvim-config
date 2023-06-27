@@ -1,43 +1,7 @@
 return function()
   require 'nvim-treesitter.configs'.setup {
     ensure_installed = {
-      'bash',
-      'c_sharp',
-      'clojure',
-      'cmake',
-      'css',
-      'dockerfile',
-      'gitattributes',
-      'gitignore',
-      'go',
-      'gomod',
-      'gowork',
-      'graphql',
-      'html',
-      'http',
-      'java',
-      'javascript',
-      'jsdoc',
-      'json',
-      'json5',
-      'kotlin',
-      'latex',
       'lua',
-      'make',
-      'markdown',
-      'markdown_inline',
-      'python',
-      'regex',
-      'rust',
-      'scss',
-      'sql',
-      'svelte',
-      'toml',
-      'tsx',
-      'typescript',
-      'vim',
-      'vue',
-      'yaml',
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -66,4 +30,17 @@ return function()
       additional_vim_regex_highlighting = false,
     },
   }
+
+  local parsers = require 'nvim-treesitter.parsers'
+  function _G.ensure_treesitter_language_installed()
+    local lang = parsers.get_buf_lang()
+    if parsers.get_parser_configs()[lang] and not parsers.has_parser(lang) then
+      vim.schedule_wrap(function()
+        vim.cmd("TSInstallSync " .. lang)
+        vim.cmd [[e!]]
+      end)()
+    end
+  end
+
+  vim.cmd [[autocmd FileType * :lua ensure_treesitter_language_installed()]]
 end
