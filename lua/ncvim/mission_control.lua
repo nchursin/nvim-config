@@ -16,6 +16,8 @@ ncvim = {
     require('packer').startup(function(use)
       use 'wbthomason/packer.nvim'
       use 'lewis6991/impatient.nvim'
+      use 'joshdick/onedark.vim'
+      use 'NLKNguyen/papercolor-theme'
     end)
   end,
   mappings = {},
