@@ -1,7 +1,3 @@
-if vim.g.packer_bootstrap then
-  require('packer').sync()
-end
-
 -- require only if module exists
 local function loadrequire(module)
   local function requiref(module_to_require)
