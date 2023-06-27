@@ -12,6 +12,6 @@ ncvim.add_mappings {
   {
     mode = 'n',
     key_string = '<C-s>',
-    command = ':DBUIToggle<CR>'
+    command = ncvim.db.toggle,
   }
 }

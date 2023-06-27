@@ -10,6 +10,6 @@ ncvim.add_mappings({
   {
     mode = 'n',
     key_string = '<leader>td',
-    command = ':TodoLocList keywords=TODO,FIX,FIXME<CR>'
+    command = ncvim.ui.panels.todo,
   }
 })

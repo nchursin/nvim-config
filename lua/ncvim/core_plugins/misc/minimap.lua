@@ -27,13 +27,13 @@ ncvim.add_mappings {
   {
     mode = 'n',
     key_string = '<leader>mm',
-    command = ':MinimapToggle<CR>',
+    command = ncvim.ui.panels.minimap,
     options = silent_noremap,
   },
   {
     mode = 'n',
     key_string = '<leader>s',
-    command = ':SymbolsOutline<CR>',
+    command = ncvim.ui.panels.symbois,
     options = silent_noremap,
   },
 }

@@ -45,3 +45,25 @@ ncvim.filetree = {
     vim.cmd 'NERDTree'
   end,
 }
+
+ncvim.db = {
+  toggle = function()
+    vim.cmd 'DBUIToggle'
+  end,
+}
+
+ncvim.ui = {
+  panels = {
+    minimap = function()
+      vim.cmd 'MinimapToggle'
+    end,
+
+    symbois = function()
+      vim.cmd 'SymbolsOutline'
+    end,
+
+    todo = function()
+      vim.cmd 'TodoLocList keywords=TODO,FIX,FIXME'
+    end
+  }
+}

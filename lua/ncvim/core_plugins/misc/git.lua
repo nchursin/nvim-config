@@ -1,5 +1,3 @@
-local silent_noremap = { noremap = true, silent = true }
-
 ncvim.plugin({
   {
     'tpope/vim-fugitive',
@@ -21,12 +19,3 @@ ncvim.plugin({
     end
   },
 })
-
-ncvim.add_mappings {
-  {
-    mode = 'n',
-    key_string = '<leader>gb',
-    command = ':Git blame<CR>',
-    options = silent_noremap,
-  }
-}
