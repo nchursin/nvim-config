@@ -1,7 +1,5 @@
 -- TODO: check if this is needed at all with telescope-ui-select
 
-local telescope = require('telescope.builtin')
-
 ncvim.config = {
   path = vim.fn.stdpath('config'),
 
@@ -12,15 +10,15 @@ ncvim.config = {
 
 ncvim.lsp = {
   references = function()
-    telescope.lsp_references()
+    require('telescope.builtin').lsp_references()
   end,
 
   implementations = function()
-    telescope.lsp_implementations()
+    require('telescope.builtin').lsp_implementations()
   end,
 
   definitions = function()
-    telescope.lsp_definitions()
+    require('telescope.builtin').lsp_definitions()
   end,
 
   signature_help = function()

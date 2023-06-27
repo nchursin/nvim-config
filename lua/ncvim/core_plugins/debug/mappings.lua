@@ -40,7 +40,9 @@ ncvim.add_mappings({
   {
     mode = 'n',
     key_string = '<leader>dt',
-    command = require 'dapui'.toggle,
+    command = function()
+      require 'dapui'.toggle()
+    end,
     options = silent_noremap,
   },
   {

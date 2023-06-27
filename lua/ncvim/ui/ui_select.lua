@@ -28,6 +28,8 @@ ncvim.add_mappings({
   {
     mode = { 'n', 'i' },
     key_string = '<C-j>',
-    command = require "popui.diagnostics-navigator",
+    command = function()
+      require "popui.diagnostics-navigator" ()
+    end
   }
 })
