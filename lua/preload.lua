@@ -9,17 +9,4 @@ local ensure_packer = function()
   return false
 end
 
-local packer_bootstrap = ensure_packer()
-
-if packer_bootstrap then
-  require('packer').sync()
-end
-
--- require only if module exists
-local function loadrequire(module)
-  local function requiref(module_to_require)
-    require(module_to_require)
-  end
-  pcall(requiref, module)
-end
-loadrequire('impatient')
+vim.g.packer_bootstrap = ensure_packer()
