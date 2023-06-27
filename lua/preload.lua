@@ -12,7 +12,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 if packer_bootstrap then
-  require('core.plugins')
   require('packer').sync()
 end
 
