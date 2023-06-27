@@ -1,4 +1,5 @@
-ncvim.plugin({
+-- do not postpone themes installation
+require 'packer'.install({
   {
     'joshdick/onedark.vim',
   },
