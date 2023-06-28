@@ -28,19 +28,19 @@ ncvim.lsp = {
 
 ncvim.filetree = {
   toggle = function()
-    vim.cmd 'NERDTreeToggle'
+    print 'Filetree not configured'
   end,
 
   focus = function()
-    vim.cmd 'NERDTreeFocus'
+    print 'Filetree not configured'
   end,
 
   current_file = function()
-    vim.cmd 'NERDTreeFind'
+    print 'Filetree not configured'
   end,
 
   restart = function()
-    vim.cmd 'NERDTree'
+    print 'Filetree not configured'
   end,
 }
 

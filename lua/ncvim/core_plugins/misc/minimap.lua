@@ -11,6 +11,8 @@ ncvim.plugin({
       require("symbols-outline").setup({
         keymaps = {
           close = "q",
+          goto_location = "g",
+          focus_location = "<CR>",
           fold = "f",
           unfold = "e",
           fold_all = "F",
