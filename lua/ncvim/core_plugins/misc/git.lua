@@ -1,5 +1,12 @@
 ncvim.plugin({
   {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup({
+      })
+    end
+  },
+  {
     'tpope/vim-fugitive',
   },
   {
@@ -9,13 +16,6 @@ ncvim.plugin({
       vim.g.blamer_show_in_insert_modes = 0
       vim.g.blamer_template = '<commit-short> - <author>, <author-time>: <summary>'
       vim.g.blamer_delay = 500
-    end
-  },
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup({
-      })
     end
   },
 })

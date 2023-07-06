@@ -65,7 +65,7 @@ ncvim.plugin({
     table.insert(buttons, dashboard.button("p", " Packages Update (PackerSync)", ":PackerSync<CR>"))
     table.insert(buttons,
       dashboard.button(",", "󰒓 NcVim Config Folder",
-        ":lua ncvim.config.open()<CR>:lua ncvim.filetree.focus()<CR>:2q<CR>"))
+        ":lua ncvim.config.open()<CR>:lua ncvim.filetree.focus()<CR>:1bd<CR>"))
     table.insert(buttons, dashboard.button("q", "󰩈 Quit", ":qa<CR>"))
 
     dashboard.section.buttons.val = buttons
