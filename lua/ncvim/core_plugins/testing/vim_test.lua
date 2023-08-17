@@ -13,6 +13,7 @@ let test#javascript#webdriverio#file_pattern = '\v((test|spec)s?/.*|(test|spec))
 ]]
 
 
+    vim.g['test#echo_command'] = 1
     vim.g['test#strategy'] = "neovim"
     vim.g['test#javascript#mocha#executable'] = 'mocha'
     -- vim.g['test#javascript#runner'] = 'jest'
@@ -20,6 +21,7 @@ let test#javascript#webdriverio#file_pattern = '\v((test|spec)s?/.*|(test|spec))
     -- vim.g['test#javascript#runner'] = 'webdriverio'
     vim.g['test#python#runner'] = 'pytest'
 
-    vim.g['test#go#gotest#executable'] = 'grc go test'
+    -- vim.g['test#go#gotest#executable'] = 'grc go test'
+    vim.g['test#go#gotest#executable'] = 'function echo_and_exec() { echo "$@" && $@ }; echo_and_exec grc go test'
   end
 })

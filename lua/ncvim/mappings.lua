@@ -83,6 +83,24 @@ ncvim.add_mappings {
   },
   {
     mode = 'n',
+    key_string = 'gSd',
+    command = '<C-w>s<cmd> lua ncvim.lsp.definitions()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gD',
+    command = ncvim.lsp.declaration,
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gsD',
+    command = '<C-w>v<cmd> lua ncvim.lsp.declaration()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
     key_string = '<C-k>',
     command = ncvim.lsp.signature_help,
     options = silent_noremap,
@@ -107,6 +125,12 @@ ncvim.add_mappings {
   },
   {
     mode = 'n',
+    key_string = 'gSi',
+    command = '<C-w>s<cmd> lua ncvim.lsp.implementations()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
     key_string = 'gr',
     command = ncvim.lsp.references,
     options = silent_noremap,
@@ -115,6 +139,12 @@ ncvim.add_mappings {
     mode = 'n',
     key_string = 'gsr',
     command = '<C-w>v<cmd> lua ncvim.lsp.references()<CR>',
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
+    key_string = 'gSr',
+    command = '<C-w>s<cmd> lua ncvim.lsp.references()<CR>',
     options = silent_noremap,
   },
 }

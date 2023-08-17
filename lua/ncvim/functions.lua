@@ -21,6 +21,10 @@ ncvim.lsp = {
     require('telescope.builtin').lsp_definitions()
   end,
 
+  declaration = function()
+    vim.lsp.buf.declaration()
+  end,
+
   signature_help = function()
     vim.lsp.buf.signature_help()
   end,

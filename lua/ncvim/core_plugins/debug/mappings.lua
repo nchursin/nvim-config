@@ -9,6 +9,12 @@ ncvim.add_mappings({
   },
   {
     mode = 'n',
+    key_string = '<leader>dx',
+    command = ":lua require'dap'.terminate() <CR>",
+    options = silent_noremap,
+  },
+  {
+    mode = 'n',
     key_string = '<leader>db',
     command = ":lua require'dap'.toggle_breakpoint() <CR>",
     options = silent_noremap,
