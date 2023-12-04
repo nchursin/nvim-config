@@ -17,7 +17,26 @@ return function()
           ["<C-h>"] = "which_key",
           ["dd"] = "delete_buffer",
         }
-      }
+      },
+      file_ignore_patterns = {
+        "node_modules",
+        "vendor.protogen",
+      },
+      vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--no-ignore',
+      },
+    },
+    pickers = {
+      find_files = {
+        hidden = true,
+      },
     },
   })
 
