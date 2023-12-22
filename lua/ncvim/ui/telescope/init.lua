@@ -2,7 +2,7 @@ local config = require('ncvim.ui.telescope.config')
 
 ncvim.plugin({
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.0',
+  tag = '0.1.x',
   config = config,
   requires = {
     { 'nvim-telescope/telescope-dap.nvim', },
