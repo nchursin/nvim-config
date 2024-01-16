@@ -5,6 +5,12 @@ vim.g.mapleader = ' '
 -- treat long lines as multiple lines
 ncvim.add_mappings {
   {
+    mode = 'n',
+    key_string = '<leader>jp',
+    options = { noremap = false },
+    command = '%!python3 -m json.tool --no-ensure-ascii<CR>',
+  },
+  {
     mode = '',
     key_string = 'j',
     command = 'gj',

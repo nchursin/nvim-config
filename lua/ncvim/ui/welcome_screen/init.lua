@@ -1,3 +1,6 @@
+-- local v = vim.version()
+-- local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
+
 ncvim.plugin({
   'goolord/alpha-nvim',
   config = function()
@@ -48,6 +51,17 @@ ncvim.plugin({
       [[                                   ▓▓▓▓▓▓▓▓     ▓▓▓▓▓▓▓▓                                  ]],
       [[                                                                                          ]],
     }
+
+    -- dashboard.section.footer = {
+    --   type = 'text',
+    --   val = {
+    --     version,
+    --   },
+    --   opts = {
+    --     position = 'center',
+    --     hl = 'Number'
+    --   }
+    -- }
 
     local session_manager_config = require('session_manager.config')
     local cwd = vim.loop.cwd()
