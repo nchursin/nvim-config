@@ -8,8 +8,8 @@ end
 
 loadrequire('impatient')
 
-ncvim.config_packer()
-ncvim.install_plugins()
+-- ncvim.config_packer()
+ncvim.install_plugins_lazy()
 ncvim.apply_mappings()
 ncvim.create_autocmds()
 if ncvim.theme then

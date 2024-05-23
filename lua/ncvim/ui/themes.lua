@@ -23,18 +23,20 @@ local themes = {
     vim.cmd([[
         syntax enable
         colorscheme onedark
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
     ]])
+
+    --highlight SignColumn guibg=Black
+    --highlight SignColumn ctermbg=Black
   end,
   LIGHT = function()
     vim.cmd([[
         syntax enable
         colorscheme catppuccin
         set background=light
-        highlight SignColumn guibg=Black
-        highlight SignColumn ctermbg=Black
     ]])
+
+    --highlight SignColumn guibg=Light
+    --highlight SignColumn ctermbg=Light
   end,
 }
 

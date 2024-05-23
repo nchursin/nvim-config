@@ -37,3 +37,27 @@ ncvim.install_plugins = function()
     require('packer').use(plugin)
   end
 end
+
+local transform_for_lazy = function(plugin)
+  if type(plugin) == 'string' then
+    return plugin
+  end
+  plugin.init = plugin.setup
+  plugin.dependencies = plugin.requires
+  plugin.name = plugin.as
+  plugin.lazy = plugin.opt
+  plugin.build = plugin.run
+  plugin.pin = plugin.lock
+  plugin.enabled = not plugin.disable
+  plugin.version = plugin.tag
+  return plugin
+end
+
+--- Installs plugins and does configuration with packer
+ncvim.install_plugins_lazy = function()
+  local transformed = {}
+  for _, plugin in ipairs(ncvim.plugins) do
+    table.insert(transformed, transform_for_lazy(plugin))
+  end
+  require('lazy').setup(transformed)
+end

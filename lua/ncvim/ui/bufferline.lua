@@ -1,6 +1,5 @@
 ncvim.plugin({
   'akinsho/bufferline.nvim',
-  tag = "v3.*",
   requires = 'nvim-tree/nvim-web-devicons',
   config = function()
     vim.opt.termguicolors = true

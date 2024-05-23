@@ -10,3 +10,22 @@ local ensure_packer = function()
 end
 
 vim.g.packer_bootstrap = ensure_packer()
+
+local ensure_lazy = function()
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    vim.fn.system({
+      "git",
+      "clone",
+      "--filter=blob:none",
+      "https://github.com/folke/lazy.nvim.git",
+      "--branch=stable", -- latest stable release
+      lazypath,
+    })
+    return true
+  end
+  vim.opt.rtp:prepend(lazypath)
+  return false
+end
+
+vim.g.lazy_bootstrap = ensure_lazy()

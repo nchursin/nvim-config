@@ -76,7 +76,7 @@ ncvim.plugin({
     end
     table.insert(buttons, dashboard.button("s", "󱣹 Sessions", ":lua ncvim.pickers.sessions()<CR>"))
     table.insert(buttons, dashboard.button("m", " LSP/Linters/Formatters", ":Mason<CR>"))
-    table.insert(buttons, dashboard.button("p", " Packages Update (PackerSync)", ":PackerSync<CR>"))
+    table.insert(buttons, dashboard.button("p", " Lazy", ":Lazy<CR>"))
     table.insert(buttons,
       dashboard.button(",", "󰒓 NcVim Config Folder",
         ":lua ncvim.config.open()<CR>:lua ncvim.filetree.focus()<CR>:1bd<CR>"))

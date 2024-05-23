@@ -1,6 +1,7 @@
 ncvim.plugin({
   'mfussenegger/nvim-dap',
   requires = {
+    "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",
   },
   config = function()
