@@ -1,4 +1,5 @@
 local Path = require('plenary.path')
+ncvim.plugin(require('ncvim.ui.themes.theme2'))
 
 local function write_theme_config(config)
   local config_path = Path.new(vim.fn.stdpath('config'))
@@ -22,7 +23,8 @@ local themes = {
   DARK = function()
     vim.cmd([[
         syntax enable
-        colorscheme onedark
+        colorscheme catppuccin
+        set background=dark
     ]])
 
     --highlight SignColumn guibg=Black
@@ -39,8 +41,6 @@ local themes = {
     --highlight SignColumn ctermbg=Light
   end,
 }
-
--- colorscheme PaperColor
 
 ncvim.themes = themes
 ncvim.theme = themes.DARK
