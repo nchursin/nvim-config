@@ -34,9 +34,6 @@ ncvim.plugin {
 
     local get_hex = require('cokeline.hlgroups').get_hl_attr
 
-    local green = vim.g.terminal_color_2
-    local yellow = vim.g.terminal_color_3
-
     local get_tabpage_head_buffer = function(tabpage)
       local has_buffer = tabpage.focused ~= nil
       if not has_buffer then
@@ -44,7 +41,11 @@ ncvim.plugin {
       end
 
 
-      local buff_nr = vim.api.nvim_win_get_buf(tabpage.focused.number)
+      local success, buff_nr = pcall(vim.api.nvim_win_get_buf, tabpage.focused.number)
+      if success == false then
+        print("tab err: " .. buff_nr)
+        return nil
+      end
       local buf = buffers.get_buffer(buff_nr)
 
       return buf
@@ -52,12 +53,12 @@ ncvim.plugin {
 
     highlight = {
       active = {
-        fg = get_hex('DiffText', 'fg'),
-        bg = get_hex('DiffText', 'bg'),
+        fg = get_hex('CurSearch', 'fg'),
+        bg = get_hex('CurSearch', 'bg'),
       },
       inactive = {
-        bg = get_hex('ColorColumn', 'bg'),
-        fg = get_hex('Normal', 'fg'),
+        bg = get_hex('DiffText', 'bg'),
+        fg = get_hex('DiffText', 'fg'),
       },
     }
 
@@ -75,9 +76,30 @@ ncvim.plugin {
               highlight.active.bg
               or highlight.inactive.bg
         end,
+        sp = highlight.inactive.bg,
       },
 
-      components = {
+      fill_hl = 'BufferLineFill',
+
+      components = {},
+
+      rhs = {
+        {
+          bg = highlight.inactive.bg,
+          fg = highlight.inactive.fg,
+          text = function()
+            local now = os.time()
+            return os.date('%d.%m/%y %H:%M:%S', now)
+          end,
+          -- fg = function(tabpage)
+          --   local buffer = get_tabpage_head_buffer(tabpage)
+          --   if buffer == nil then
+          --     return green
+          --   end
+          --   return
+          --       buffer.is_modified and yellow or green
+          -- end
+        },
       },
 
       tabs = {
@@ -85,16 +107,17 @@ ncvim.plugin {
         ---@type Component[]
         components = {
           {
+            bg = highlight.inactive.bg,
+            fg = highlight.inactive.fg,
             text = '｜',
-            highlight = 'bg',
-            fg = function(tabpage)
-              local buffer = get_tabpage_head_buffer(tabpage)
-              if buffer == nil then
-                return green
-              end
-              return
-                  buffer.is_modified and yellow or green
-            end
+            -- fg = function(tabpage)
+            --   local buffer = get_tabpage_head_buffer(tabpage)
+            --   if buffer == nil then
+            --     return green
+            --   end
+            --   return
+            --       buffer.is_modified and yellow or green
+            -- end
           },
           {
             text = function(tabpage)
@@ -128,7 +151,7 @@ ncvim.plugin {
               end
               return buffer.unique_prefix
             end,
-            fg = get_hex('Comment', 'fg'),
+            fg = get_hex('Comment', 'bg'),
             italic = true,
           },
           {
@@ -148,14 +171,19 @@ ncvim.plugin {
             end,
           },
           {
-            highlight = 'bg',
+            bg = highlight.inactive.bg,
+            fg = highlight.inactive.fg,
             text = function(tabpage)
-              return tabpage.is_last and '|' or ''
+              return tabpage.is_last and '｜' or ''
             end,
           },
         }
       },
-
     })
+
+    -- print("bg >> " .. highlight.inactive.bg)
+    -- vim.cmd("hi TabLineFill guibg=" .. highlight.inactive.bg)
+
+    vim.cmd("hi TabLineFill guibg=#4f5258")
   end
 }
