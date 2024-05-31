@@ -260,6 +260,8 @@ ncvim = {
   autocmds = {},
 }
 
+require('ncvim.utils')
+
 ncvim.add_autocmd = function(events, config)
   table.insert(ncvim.autocmds, {
     events = events,

@@ -43,7 +43,7 @@ local transform_for_lazy = function(plugin)
     return plugin
   end
   plugin.init = plugin.setup
-  plugin.dependencies = plugin.requires
+  plugin.dependencies = plugin.dependencies or plugin.requires
   plugin.name = plugin.as
   plugin.lazy = plugin.opt
   plugin.build = plugin.run
