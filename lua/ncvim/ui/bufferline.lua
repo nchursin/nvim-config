@@ -67,8 +67,6 @@ ncvim.plugin {
       },
     }
 
-    -- print('highlight inactive bg: ' .. highlight.inactive.bg)
-
     require('cokeline').setup({
       default_hl = {
         fg = function(tabpage)
@@ -98,14 +96,6 @@ ncvim.plugin {
             local now = os.time()
             return os.date('%d.%m.%y %H:%M:%S', now)
           end,
-          -- fg = function(tabpage)
-          --   local buffer = get_tabpage_head_buffer(tabpage)
-          --   if buffer == nil then
-          --     return green
-          --   end
-          --   return
-          --       buffer.is_modified and yellow or green
-          -- end
         },
       },
 
@@ -201,10 +191,5 @@ ncvim.plugin {
         }
       },
     })
-
-    -- print("bg >> " .. highlight.inactive.bg)
-    -- vim.cmd("hi TabLineFill guibg=" .. highlight.inactive.bg)
-
-    -- vim.cmd("hi TabLineFill guibg=" .. highlight.inactive.bg)
   end
 }
