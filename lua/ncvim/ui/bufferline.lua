@@ -56,9 +56,9 @@ ncvim.plugin {
       return buf
     end
 
-    highlight = {
+    local highlight = {
       active = {
-        fg = function() return get_hex('WarningMsg', 'fg') end,
+        fg = function() return get_hex('Folded', 'fg') end,
         bg = function() return get_hex('Visual', 'bg') end,
       },
       inactive = {
