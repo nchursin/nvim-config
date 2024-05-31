@@ -40,7 +40,6 @@ ncvim.plugin {
         return nil
       end
 
-
       local success, buff_nr = pcall(vim.api.nvim_win_get_buf, tabpage.focused.number)
       if success == false then
         print("tab err: " .. buff_nr)
@@ -53,43 +52,45 @@ ncvim.plugin {
 
     highlight = {
       active = {
-        fg = get_hex('CurSearch', 'fg'),
-        bg = get_hex('CurSearch', 'bg'),
+        fg = function() return get_hex('WarningMsg', 'fg') end,
+        bg = function() return get_hex('Visual', 'bg') end,
       },
       inactive = {
-        bg = get_hex('DiffText', 'bg'),
-        fg = get_hex('DiffText', 'fg'),
+        fg = function() return get_hex('CursorLine', 'fg') end,
+        bg = function() return get_hex('CursorLine', 'bg') end,
       },
     }
+
+    -- print('highlight inactive bg: ' .. highlight.inactive.bg)
 
     require('cokeline').setup({
       default_hl = {
         fg = function(tabpage)
           return
               tabpage.is_active and
-              highlight.active.fg
-              or highlight.inactive.fg
+              highlight.active.fg()
+              or highlight.inactive.fg()
         end,
         bg = function(tabpage)
           return
               tabpage.is_active and
-              highlight.active.bg
-              or highlight.inactive.bg
+              highlight.active.bg()
+              or highlight.inactive.bg()
         end,
         sp = highlight.inactive.bg,
       },
 
-      fill_hl = 'BufferLineFill',
+      fill_hl = 'CursorLine',
 
       components = {},
 
       rhs = {
         {
-          bg = highlight.inactive.bg,
           fg = highlight.inactive.fg,
+          bg = highlight.inactive.bg,
           text = function()
             local now = os.time()
-            return os.date('%d.%m/%y %H:%M:%S', now)
+            return os.date('%d.%m.%y %H:%M:%S', now)
           end,
           -- fg = function(tabpage)
           --   local buffer = get_tabpage_head_buffer(tabpage)
@@ -102,6 +103,20 @@ ncvim.plugin {
         },
       },
 
+      sidebar = {
+        filetype = { 'NvimTree', 'neo-tree' },
+        components = {
+          {
+            text = function(buf)
+              return "Files"
+            end,
+            fg = highlight.inactive.fg,
+            bg = function() return get_hex('NvimTreeNormal', 'bg') end,
+            bold = true,
+          },
+        }
+      },
+
       tabs = {
         placement = "left",
         ---@type Component[]
@@ -109,15 +124,12 @@ ncvim.plugin {
           {
             bg = highlight.inactive.bg,
             fg = highlight.inactive.fg,
-            text = '｜',
-            -- fg = function(tabpage)
-            --   local buffer = get_tabpage_head_buffer(tabpage)
-            --   if buffer == nil then
-            --     return green
-            --   end
-            --   return
-            --       buffer.is_modified and yellow or green
-            -- end
+            text = function(tabpage)
+              if tabpage.number == 1 then
+                return ' '
+              end
+              return '｜'
+            end,
           },
           {
             text = function(tabpage)
@@ -125,11 +137,17 @@ ncvim.plugin {
               if buffer == nil then
                 return ''
               end
+              if buffer.devicon == nil then
+                return ''
+              end
               return buffer.devicon.icon .. ' '
             end,
             fg = function(tabpage)
               local buffer = get_tabpage_head_buffer(tabpage)
               if buffer == nil then
+                return ''
+              end
+              if buffer.devicon == nil then
                 return ''
               end
               return buffer.devicon.color
@@ -184,6 +202,6 @@ ncvim.plugin {
     -- print("bg >> " .. highlight.inactive.bg)
     -- vim.cmd("hi TabLineFill guibg=" .. highlight.inactive.bg)
 
-    vim.cmd("hi TabLineFill guibg=#4f5258")
+    -- vim.cmd("hi TabLineFill guibg=" .. highlight.inactive.bg)
   end
 }
