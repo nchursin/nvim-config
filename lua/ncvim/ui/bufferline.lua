@@ -31,10 +31,16 @@ ncvim.plugin {
   'willothy/nvim-cokeline',
   config = function()
     local buffers = require('cokeline.buffers')
+    local tabs = require('cokeline.tabs')
 
     local get_hex = require('cokeline.hlgroups').get_hl_attr
 
     local get_tabpage_head_buffer = function(tabpage)
+      tabs.fetch_tabs()
+      tabpage = tabs.get_tabpage(tabpage.number)
+      if tabpage == nil then
+        return nil
+      end
       local has_buffer = tabpage.focused ~= nil
       if not has_buffer then
         return nil
@@ -122,13 +128,8 @@ ncvim.plugin {
         ---@type Component[]
         components = {
           {
-            bg = highlight.inactive.bg,
-            fg = highlight.inactive.fg,
             text = function(tabpage)
-              if tabpage.number == 1 then
-                return ' '
-              end
-              return '｜'
+              return ' '
             end,
           },
           {
@@ -190,9 +191,11 @@ ncvim.plugin {
           },
           {
             bg = highlight.inactive.bg,
-            fg = highlight.inactive.fg,
+            fg = function()
+              return get_hex('Directory', 'fg')
+            end,
             text = function(tabpage)
-              return tabpage.is_last and '｜' or ''
+              return '｜'
             end,
           },
         }
