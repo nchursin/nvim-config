@@ -55,7 +55,7 @@ ncvim.plugin {
 
       local success, buff_nr = pcall(vim.api.nvim_win_get_buf, tabpage.focused.number)
       if success == false then
-        print("tab err: " .. buff_nr)
+        -- print("tab err: " .. buff_nr)
         return nil
       end
       local buf = buffersApi.get_buffer(buff_nr)
