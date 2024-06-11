@@ -109,7 +109,7 @@ ncvim.plugin {
     local get_window_buffer = function(window)
       local success, buff_nr = pcall(vim.api.nvim_win_get_buf, window.number)
       if success == false then
-        print("tab err: " .. buff_nr)
+        -- print("tab err: " .. buff_nr)
         return nil
       end
       return buffersApi.get_buffer(buff_nr)
@@ -196,19 +196,19 @@ ncvim.plugin {
         },
       },
 
-      sidebar = {
-        filetype = { 'NvimTree', 'neo-tree' },
-        components = {
-          {
-            text = function(buf)
-              return "Files"
-            end,
-            fg = highlight.inactive.fg,
-            bg = function() return get_hex('NvimTreeNormal', 'bg') end,
-            bold = true,
-          },
-        }
-      },
+      -- sidebar = {
+      --   filetype = { 'NvimTree', 'neo-tree' },
+      --   components = {
+      --     {
+      --       text = function(buf)
+      --         return "Files"
+      --       end,
+      --       fg = highlight.inactive.fg,
+      --       bg = function() return get_hex('NvimTreeNormal', 'bg') end,
+      --       bold = true,
+      --     },
+      --   }
+      -- },
 
       tabs = {
         placement = "left",
