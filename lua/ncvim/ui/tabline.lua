@@ -165,6 +165,8 @@ ncvim.plugin {
     end
 
     require('cokeline').setup({
+      show_if_buffers_are_at_least = 2,
+
       default_hl = {
         fg = function(tabpage)
           return
@@ -196,6 +198,8 @@ ncvim.plugin {
         },
       },
 
+      sidebar = {
+      },
       -- sidebar = {
       --   filetype = { 'NvimTree', 'neo-tree' },
       --   components = {
