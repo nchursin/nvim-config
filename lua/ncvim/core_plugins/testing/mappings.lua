@@ -11,47 +11,55 @@
 -- map('n', 't<C-d>', ':call DebugNearest<CR>', { noremap = false })
 -- map('n', 't<C-s>', ':TestSuite<CR>', { noremap = false })
 -- map('n', 't<C-g>', ':TestVisit<CR>', { noremap = false })
+
 ncvim.add_mappings {
   {
     mode = 'n',
     key_string = 'tn',
-    command = ':TestNearest<CR>',
+    -- command = ':TestNearest<CR>',
+    command = ncvim.testing.test_nearest,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'tf',
-    command = ':TestFile<CR>',
+    -- command = ':TestFile<CR>',
+    command = ncvim.testing.test_file,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'tl',
-    command = ':TestLast<CR>',
+    -- command = ':TestLast<CR>',
+    command = ncvim.testing.test_last,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'tdn',
-    command = ':call DebugNearest()<CR>',
+    -- command = ':call DebugNearest()<CR>',
+    command = ncvim.testing.debug_nearest,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'tdl',
-    command = ':call DebugLast()<CR>',
+    -- command = ':call DebugLast()<CR>',
+    command = ncvim.testing.debug_last,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'ts',
-    command = ':TestSuite<CR>',
+    -- command = ':TestSuite<CR>',
+    command = ncvim.testing.test_suite,
     options = { noremap = false },
   },
   {
     mode = 'n',
     key_string = 'tg',
-    command = ':TestVisit<CR>',
+    -- command = ':TestVisit<CR>',
+    command = ncvim.testing.test_visit,
     options = { noremap = false },
   },
   {
