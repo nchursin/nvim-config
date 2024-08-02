@@ -44,6 +44,7 @@ ncvim.plugin {
 
     local get_tabpage_head_buffer = function(tabpage)
       tabs.fetch_tabs()
+      buffersApi.
       tabpage = tabs.get_tabpage(tabpage.number)
       if tabpage == nil then
         return nil
@@ -55,10 +56,17 @@ ncvim.plugin {
 
       local success, buff_nr = pcall(vim.api.nvim_win_get_buf, tabpage.focused.number)
       if success == false then
-        -- print("tab err: " .. buff_nr)
         return nil
       end
       local buf = buffersApi.get_buffer(buff_nr)
+
+      if buf == nil then
+        if tabpage.last_focused ~= nil then
+          return tabpage.last_focused
+        end
+        return nil
+      end
+      tabpage.last_focused = buf
 
       return buf
     end
@@ -109,7 +117,6 @@ ncvim.plugin {
     local get_window_buffer = function(window)
       local success, buff_nr = pcall(vim.api.nvim_win_get_buf, window.number)
       if success == false then
-        -- print("tab err: " .. buff_nr)
         return nil
       end
       return buffersApi.get_buffer(buff_nr)
@@ -164,6 +171,10 @@ ncvim.plugin {
       return 0 < tab_errors_num(tabpage)
     end
 
+    local function is_empty_str(s)
+      return s == nil or s == ''
+    end
+
     require('cokeline').setup({
       show_if_buffers_are_at_least = 2,
 
@@ -199,20 +210,18 @@ ncvim.plugin {
       },
 
       sidebar = {
+        filetype = { 'neo-tree' },
+        components = {
+          {
+            text = function(buf)
+              return buf.filetype
+            end,
+            -- fg = highlight.inactive.fg,
+            -- bg = function() return get_hex('NvimTreeNormal', 'bg') end,
+            -- bold = true,
+          },
+        }
       },
-      -- sidebar = {
-      --   filetype = { 'NvimTree', 'neo-tree' },
-      --   components = {
-      --     {
-      --       text = function(buf)
-      --         return "Files"
-      --       end,
-      --       fg = highlight.inactive.fg,
-      --       bg = function() return get_hex('NvimTreeNormal', 'bg') end,
-      --       bold = true,
-      --     },
-      --   }
-      -- },
 
       tabs = {
         placement = "left",
@@ -268,7 +277,10 @@ ncvim.plugin {
             text = function(tabpage)
               local buffer = get_tabpage_head_buffer(tabpage)
               if buffer == nil then
-                return ''
+                return 'No Buffer'
+              end
+              if is_empty_str(buffer.filename) then
+                return "No Name"
               end
               return buffer.filename .. ' '
             end,
