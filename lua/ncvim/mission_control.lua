@@ -258,6 +258,8 @@ ncvim = {
     end
   },
   autocmds = {},
+
+  custom = {},
 }
 
 require('ncvim.utils')
