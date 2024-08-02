@@ -28,6 +28,11 @@ ncvim.plugin {
   config = function()
     require('neo-tree').setup({
 
+      source_selector = {
+        winbar = true,
+        statusline = false
+      },
+
       filesystem = {
         filtered_items = {
           hide_dotfiles = false,
