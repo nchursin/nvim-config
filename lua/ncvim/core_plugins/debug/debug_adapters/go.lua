@@ -23,16 +23,20 @@ ncvim.plugin {
         -- to start the process in a random available port
         port = "38697",
         -- additional args to pass to dlv
-        args = {}
+        args = {
+
+        }
       },
     })
 
     dap.adapters.delve = {
       type = 'server',
-      port = '${port}',
+      -- port = '${port}',
+      port = '38697',
       executable = {
         command = 'dlv',
-        args = { 'dap', '-l', '127.0.0.1:${port}' },
+        -- args = { 'dap', '-l', '127.0.0.1:${port}' },
+        args = { 'dap', '-l', '127.0.0.1:38697' },
       }
     }
 
@@ -49,8 +53,11 @@ ncvim.plugin {
       {
         -- Must be "go" or it will be ignored by the plugin
         type = "go",
-        name = "Attach remote",
-        mode = "remote",
+        name = "Attach",
+        -- mode = "remote",
+        mode = "local",
+        -- processId = "${command:pickProcess}",
+        processId = 14402,
         request = "attach",
       },
       -- {
