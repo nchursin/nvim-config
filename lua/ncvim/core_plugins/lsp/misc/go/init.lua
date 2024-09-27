@@ -1,1 +1,1 @@
-require('ncvim.core_plugins.lsp.misc.go.return_brackets')
+-- require('ncvim.core_plugins.lsp.misc.go.return_brackets')
