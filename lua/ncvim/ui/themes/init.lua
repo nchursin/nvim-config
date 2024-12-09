@@ -1,7 +1,7 @@
-local Path = require('plenary.path')
 ncvim.plugin(require('ncvim.ui.themes.theme2'))
 
 local function write_theme_config(config)
+  local Path = require('plenary.path')
   local config_path = Path.new(vim.fn.stdpath('config'))
   -- local config_path = Path.expand( vim.fn.stdpath('config') )
   local filepath = Path.joinpath(config_path, 'lua', 'custom', 'theme.lua')

@@ -251,7 +251,7 @@ ncvim = {
     -- }
   },
   packer_bootstrap = false,
-  lazy_bootstrap = false,
+  lazy_bootstrap = true,
   pickers = {
     sessions = function()
       print('not implemented')
@@ -259,8 +259,18 @@ ncvim = {
   },
   autocmds = {},
 
+  post_install = {},
+
   custom = {},
 }
+
+
+ncvim.add_post_install = function(script)
+  table.insert(
+    ncvim.post_install,
+    script
+  )
+end
 
 require('ncvim.utils')
 

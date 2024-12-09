@@ -1,5 +1,5 @@
--- local v = vim.version()
--- local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
+local v = vim.version()
+local version = " v" .. v.major .. "." .. v.minor .. "." .. v.patch
 
 ncvim.plugin({
   'goolord/alpha-nvim',
@@ -52,6 +52,9 @@ ncvim.plugin({
       [[                                                                                          ]],
     }
 
+    dashboard.section.footer.val = {
+      version,
+    }
     -- dashboard.section.footer = {
     --   type = 'text',
     --   val = {

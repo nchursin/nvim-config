@@ -1,15 +1,15 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+-- local ensure_packer = function()
+--   local fn = vim.fn
+--   local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+--   if fn.empty(fn.glob(install_path)) > 0 then
+--     fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+--     vim.cmd [[packadd packer.nvim]]
+--     return true
+--   end
+--   return false
+-- end
 
-vim.g.packer_bootstrap = ensure_packer()
+-- vim.g.packer_bootstrap = ensure_packer()
 
 local ensure_lazy = function()
   local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -25,6 +25,7 @@ local ensure_lazy = function()
     return true
   end
   vim.opt.rtp:prepend(lazypath)
+
   return false
 end
 
