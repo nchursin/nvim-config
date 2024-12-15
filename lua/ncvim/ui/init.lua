@@ -38,6 +38,7 @@ require('ncvim.ui.tabline')
 require('ncvim.ui.cursorline')
 require('ncvim.ui.welcome_screen')
 require('ncvim.ui.tab_title')
+require('ncvim.ui.notifications')
 
 local function dumpTable(table, depth)
   if depth == nil then
