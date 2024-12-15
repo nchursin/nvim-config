@@ -16,24 +16,36 @@ cmd [[
 
 ncvim.testing = {
   test_file = function()
-    vim.cmd('TestFile')
+    -- vim.cmd('TestFile')
+    require("neotest").run.run(vim.fn.expand("%"))
   end,
   test_nearest = function()
-    vim.cmd('TestNearest')
+    -- vim.cmd('TestNearest')
+    require("neotest").run.run()
   end,
   test_last = function()
-    vim.cmd('TestLast')
+    require("neotest").run.run_last()
+    -- vim.cmd('TestLast')
   end,
   test_visit = function()
     vim.cmd('TestVisit')
   end,
   test_suite = function()
-    vim.cmd('TestSuite')
+    require("neotest").run.run({ suite = true })
+    -- vim.cmd('TestSuite')
   end,
   debug_nearest = function()
-    vim.cmd('call DebugNearest()')
+    require("neotest").run.run({ strategy = "dap" })
+    -- vim.cmd('call DebugNearest()')
   end,
   debug_last = function()
-    vim.cmd('call DebugLast()')
+    require("neotest").run.run_last({ strategy = "dap" })
+    -- vim.cmd('call DebugLast()')
+  end,
+  toggle_test_result = function()
+    require("neotest").output_panel.toggle()
+  end,
+  toggle_test_explorer = function()
+    require("neotest").summary.toggle()
   end,
 }

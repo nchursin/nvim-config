@@ -55,37 +55,47 @@ ncvim.add_mappings {
     command = ncvim.testing.test_suite,
     options = { noremap = false },
   },
+
   {
     mode = 'n',
-    key_string = 'tg',
+    key_string = 'tr',
     -- command = ':TestVisit<CR>',
-    command = ncvim.testing.test_visit,
+    command = ncvim.testing.toggle_test_result,
     options = { noremap = false },
   },
+
   {
     mode = 'n',
-    key_string = 'tcjw',
-    command = ':let g:test#javascript#runner="webdriverio"<CR>',
+    key_string = 'te',
+    -- command = ':TestVisit<CR>',
+    command = ncvim.testing.toggle_test_explorer,
     options = { noremap = false },
   },
-  {
-    mode = 'n',
-    key_string = 'tcjm',
-    command = ':let g:test#javascript#runner="mocha"<CR>',
-    options = { noremap = false },
-  },
-  {
-    mode = 'n',
-    key_string = 'tcjj',
-    command = ':let g:test#javascript#runner="jest"<CR>',
-    options = { noremap = false },
-  },
-  {
-    mode = 'n',
-    key_string = 'tsj',
-    command = ':echo g:test#javascript#runner<CR>',
-    options = { noremap = false },
-  },
+
+  -- {
+  --   mode = 'n',
+  --   key_string = 'tcjw',
+  --   command = ':let g:test#javascript#runner="webdriverio"<CR>',
+  --   options = { noremap = false },
+  -- },
+  -- {
+  --   mode = 'n',
+  --   key_string = 'tcjm',
+  --   command = ':let g:test#javascript#runner="mocha"<CR>',
+  --   options = { noremap = false },
+  -- },
+  -- {
+  --   mode = 'n',
+  --   key_string = 'tcjj',
+  --   command = ':let g:test#javascript#runner="jest"<CR>',
+  --   options = { noremap = false },
+  -- },
+  -- {
+  --   mode = 'n',
+  --   key_string = 'tsj',
+  --   command = ':echo g:test#javascript#runner<CR>',
+  --   options = { noremap = false },
+  -- },
 }
 
 -- map('n', 'tcjw', ":lua set_js_runner('webdriverio')<CR>", { noremap = false })

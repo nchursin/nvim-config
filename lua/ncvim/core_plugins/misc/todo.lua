@@ -23,5 +23,6 @@ ncvim.add_mappings({
     mode = 'n',
     key_string = '<leader>td',
     command = ncvim.ui.panels.todo,
+    desc = 'open TODOs'
   }
 })
