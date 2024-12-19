@@ -19,12 +19,12 @@ ncvim.add_mappings({
     command = '<cmd>Telescope find_files<cr>',
     options = silent_noremap,
   },
-  {
-    mode = 'n',
-    key_string = '<leader>fh',
-    command = '<cmd>Telescope search_history<cr>',
-    options = silent_noremap,
-  },
+  -- {
+  --   mode = 'n',
+  --   key_string = '<leader>fh',
+  --   command = '<cmd>Telescope search_history<cr>',
+  --   options = silent_noremap,
+  -- },
 
   {
     mode = 'n',

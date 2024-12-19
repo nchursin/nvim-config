@@ -31,11 +31,11 @@ ncvim.plugin({
       gotestsum_args = {
         '--format=testdox',
       },
-      -- go_test_args = {
-      --   "-v",
-      --   "-race",
-      --   "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
-      -- },
+      go_test_args = {
+        "-v",
+        "-count=1",
+        -- "-race",
+      },
     }
   end,
   config = function(_, opts)

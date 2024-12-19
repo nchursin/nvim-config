@@ -13,6 +13,12 @@ ncvim.add_mappings({
   },
   {
     mode = 'n',
+    key_string = '<space><space>',
+    command = '<Plug>(easymotion-overwin-f2)',
+    options = silent_noremap
+  },
+  {
+    mode = 'n',
     key_string = '<leader>es',
     command = '<Plug>(easymotion-overwin-f2)',
     options = silent_noremap
