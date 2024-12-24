@@ -26,4 +26,8 @@ ncvim.plugin({
   --     vim.g.blamer_delay = 500
   --   end
   -- },
+
+  {
+    "sindrets/diffview.nvim",
+  }
 })
