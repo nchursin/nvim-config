@@ -23,6 +23,9 @@ ncvim.plugin({
         json = {
           require("formatter.filetypes.json").jq,
         },
+        python = {
+          require("formatter.filetypes.python").autoflake,
+        },
         -- proto = {
         --   require("formatter.filetypes.proto").buf_format,
         -- },
