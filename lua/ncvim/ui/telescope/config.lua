@@ -1,5 +1,7 @@
 return function()
-  require('telescope').setup({
+  local telescope = require("telescope")
+
+  telescope.setup({
     defaults = {
       -- Default configuration for telescope goes here:
       -- config_key = value,
@@ -93,6 +95,7 @@ return function()
 
     }, {}):find()
   end
-  require('telescope').load_extension('dap')
+  telescope.load_extension('dap')
   -- require('telescope').load_extension('ui-select')
+  telescope.load_extension("live_grep_args")
 end

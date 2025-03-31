@@ -6,6 +6,19 @@ ncvim.plugin({
   },
   opts = {
     -- Add "oil" to the disabled_filetypes
+    restriction_mode = "hint", -- block or hint
+    restricted_keys = {
+      ["h"] = {},
+      ["j"] = {},
+      ["k"] = {},
+      ["l"] = {},
+      ["+"] = { "n", "x" },
+      ["gj"] = { "n", "x" },
+      ["gk"] = { "n", "x" },
+      ["<C-M>"] = { "n", "x" },
+      ["<C-N>"] = { "n", "x" },
+      ["<C-P>"] = { "n", "x" },
+    },
     disabled_filetypes = {
       "NvimTree",
       "TelescopePrompt",
@@ -22,6 +35,7 @@ ncvim.plugin({
       "Neogit*",
       "mason",
       "neotest%-summary",
+      "Neotest Summary",
       "minifiles",
       "neo%-tree*",
       "netrw",
@@ -35,6 +49,7 @@ ncvim.plugin({
       "trouble",
       "Trouble",
       "fugitive",
+      "Outline",
 
       "dbui",
       "dbout",

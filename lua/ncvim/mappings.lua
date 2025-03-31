@@ -25,14 +25,6 @@ ncvim.add_mappings {
   },
 
   -- various UX shortcuts
-  -- terminal
-  {
-    mode = 'n',
-    key_string = '<leader><C-t>',
-    command = ':split<CR><C-w>j:term<CR>',
-    options = silent_noremap,
-    desc = "open terminal below current buffer",
-  },
   -- exit i mode in terminal
   {
     mode = 't',

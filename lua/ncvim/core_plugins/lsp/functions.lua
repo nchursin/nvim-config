@@ -12,6 +12,7 @@ ncvim.lsp.on_attach = function(client, bufnr)
 
   vim.keymap.set('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename()<CR>', bufopts)
   vim.keymap.set('n', '<leader>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
+  vim.keymap.set('v', '<leader>qf', '<cmd> lua vim.lsp.buf.code_action()<CR>', bufopts)
 
   require("lsp-format").on_attach(client)
 end

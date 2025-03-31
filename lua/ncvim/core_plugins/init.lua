@@ -1,3 +1,4 @@
+require('ncvim.core_plugins.terminal')
 require('ncvim.core_plugins.lua')
 require('ncvim.core_plugins.lsp')
 require('ncvim.core_plugins.highlight')

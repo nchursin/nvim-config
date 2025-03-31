@@ -1,43 +1,21 @@
 ncvim.plugin({
-  'mhartington/formatter.nvim',
-  config = function()
-    -- local util = require "formatter.util"
-    require("formatter").setup({
-      -- Enable or disable logging
-      logging = true,
-      -- Set the log level
-      log_level = vim.log.levels.WARN,
-      filetype = {
-        javascript = {
-          require("formatter.filetypes.javascript").prettierd,
-        },
-        typescript = {
-          require("formatter.filetypes.typescript").prettierd,
-        },
-        typescriptreact = {
-          require("formatter.filetypes.typescriptreact").prettierd,
-        },
-        javascriptreact = {
-          require("formatter.filetypes.javascriptreact").prettierd,
-        },
-        json = {
-          require("formatter.filetypes.json").jq,
-        },
-        python = {
-          require("formatter.filetypes.python").autoflake,
-        },
-        -- proto = {
-        --   require("formatter.filetypes.proto").buf_format,
-        -- },
-      },
-    })
-  end
+  'stevearc/conform.nvim',
+  opts = {
+    -- Define your formatters
+    formatters_by_ft = {
+      lua = { "stylua" },
+      -- python = { "isort", "black" },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "jq" },
+      rust = { "sg" },
+      proto = { "buf" },
+    },
+    -- Set default options
+    default_format_opts = {
+      lsp_format = "fallback",
+    },
+    -- Set up format-on-save
+    format_on_save = { timeout_ms = 500 },
+  },
 })
-
-ncvim.add_autocmd(
-  'BufWritePost',
-  {
-    pattern = '*',
-    command = ':FormatWrite',
-  }
-)

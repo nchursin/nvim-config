@@ -17,8 +17,27 @@ ncvim.plugin({
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       run = 'make',
-    }
+    },
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      -- This will not install any breaking changes.
+      -- For major updates, this must be adjusted manually.
+      version = "^1.0.0",
+    },
   },
 })
+
+-- ncvim.plugin({
+--   'cljoly/telescope-repo.nvim',
+--   config = function()
+--     require 'telescope'.extensions.repo.cached_list({
+--       file_ignore_patterns = {
+--         "^" .. vim.env.HOME .. "/%.cache/",
+--         "^" .. vim.env.HOME .. "/%.local/",
+--         "^" .. vim.env.HOME .. "/%.cargo/",
+--       },
+--     })
+--   end
+-- })
 
 require('ncvim.ui.telescope.mappings')
