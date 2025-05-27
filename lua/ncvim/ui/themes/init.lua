@@ -1,4 +1,5 @@
 ncvim.plugin(require('ncvim.ui.themes.theme2'))
+ncvim.plugin(require('ncvim.ui.themes.onedark'))
 
 local function write_theme_config(config)
   local Path = require('plenary.path')
@@ -33,7 +34,7 @@ local themes = {
   LIGHT = function()
     vim.cmd([[
         syntax enable
-        colorscheme catppuccin
+        colorscheme onelight
         set background=light
     ]])
 
