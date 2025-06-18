@@ -7,10 +7,12 @@ ncvim.plugin({
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     {
-      "fredrikaverpil/neotest-golang", version = "*"
+      "fredrikaverpil/neotest-golang",
+      version = "*",
     },
     "rouge8/neotest-rust",
     "nvim-neotest/neotest-python",
+    "nvim-neotest/neotest-jest",
   },
 
   config = function(_)
@@ -19,11 +21,19 @@ ncvim.plugin({
         require("neotest-python"),
 
         require("neotest-rust"),
+        require("neotest-jest")({
+          jestCommand = "npm test --",
+          jestConfigFile = "jest.config.ts",
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
+        }),
 
-        require('neotest-golang')({
+        require("neotest-golang")({
           runner = "gotestsum",
           gotestsum_args = {
-            '--format=testdox',
+            "--format=testdox",
           },
           go_test_args = {
             "-v",
@@ -31,7 +41,7 @@ ncvim.plugin({
             -- "-race",
           },
         }),
-      }
+      },
     })
   end,
 })
