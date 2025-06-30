@@ -12,7 +12,7 @@
 ncvim = {
   mappings = {},
   plugins = {
-    'lewis6991/impatient.nvim',
+    "lewis6991/impatient.nvim",
     --'joshdick/onedark.vim',
     -- {
     --   "olimorris/onedarkpro.nvim",
@@ -254,8 +254,8 @@ ncvim = {
   lazy_bootstrap = true,
   pickers = {
     sessions = function()
-      print('not implemented')
-    end
+      print("not implemented")
+    end,
   },
   autocmds = {},
 
@@ -264,15 +264,21 @@ ncvim = {
   custom = {},
 }
 
-
-ncvim.add_post_install = function(script)
-  table.insert(
-    ncvim.post_install,
-    script
-  )
+ncvim.load_secret = function(secret_name)
+  local handle = io.popen("pass " .. secret_name)
+  if not handle then
+    error("Failed to load secret '" .. secret_name .. "'. Error: handle cannot be created")
+  end
+  local result = handle:read("*a")
+  handle:close()
+  return result:gsub("\n", "")
 end
 
-require('ncvim.utils')
+ncvim.add_post_install = function(script)
+  table.insert(ncvim.post_install, script)
+end
+
+require("ncvim.utils")
 
 ncvim.add_autocmd = function(events, config)
   table.insert(ncvim.autocmds, {

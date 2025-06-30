@@ -1,12 +1,14 @@
 ncvim.plugin({
   {
-    'wfxr/minimap.vim',
+    "wfxr/minimap.vim",
+    cmd = "MinimapToggle",
     config = function()
       vim.g.minimap_auto_start = 0
-    end
+    end,
   },
   {
-    'simrat39/symbols-outline.nvim',
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
     config = function()
       require("symbols-outline").setup({
         keymaps = {
@@ -17,25 +19,25 @@ ncvim.plugin({
           unfold = "e",
           fold_all = "F",
           unfold_all = "E",
-        }
+        },
       })
-    end
-  }
+    end,
+  },
 })
 
 local silent_noremap = { noremap = true, silent = true }
 
-ncvim.add_mappings {
+ncvim.add_mappings({
   {
-    mode = 'n',
-    key_string = '<leader>mm',
+    mode = "n",
+    key_string = "<leader>mm",
     command = ncvim.ui.panels.minimap,
     options = silent_noremap,
   },
   {
-    mode = 'n',
-    key_string = '<leader>s',
+    mode = "n",
+    key_string = "<leader>s",
     command = ncvim.ui.panels.symbois,
     options = silent_noremap,
   },
-}
+})

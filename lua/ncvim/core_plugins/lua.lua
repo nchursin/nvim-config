@@ -1,5 +1,6 @@
 ncvim.plugin({
   "folke/lua-dev.nvim",
+  ft = "lua",
   {
     "nvim-lua/plenary.nvim",
     lazy = false,

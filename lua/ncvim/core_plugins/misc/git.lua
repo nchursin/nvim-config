@@ -1,20 +1,19 @@
 ncvim.plugin({
   {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     config = function()
-      require('gitsigns').setup({
-      })
-    end
+      require("gitsigns").setup({})
+    end,
   },
   {
-    'tpope/vim-fugitive',
+    "tpope/vim-fugitive",
   },
   {
-    'f-person/git-blame.nvim',
+    "f-person/git-blame.nvim",
     config = function()
-      require('gitblame').setup {
+      require("gitblame").setup({
         enabled = true,
-      }
+      })
     end,
   },
   -- {
@@ -29,5 +28,6 @@ ncvim.plugin({
 
   {
     "sindrets/diffview.nvim",
-  }
+    cmd = "DIffViewOpen",
+  },
 })

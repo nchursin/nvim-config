@@ -15,6 +15,8 @@ ncvim.plugin({
     "nvim-neotest/neotest-jest",
   },
 
+  keys = { "te" },
+
   config = function(_)
     require("neotest").setup({
       adapters = {
