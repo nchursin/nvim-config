@@ -261,7 +261,13 @@ ncvim = {
 
   post_install = {},
 
+  events = {},
+
   custom = {},
+}
+
+ncvim.events = {
+  load_test_plugin = "ncvim_plugin_load_testing_plugin_event",
 }
 
 ncvim.load_secret = function(secret_name)

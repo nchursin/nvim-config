@@ -1,5 +1,9 @@
 ncvim.plugin({
   "nvim-neotest/neotest",
+  event = {
+    event = "User",
+    pattern = ncvim.events.load_test_plugin,
+  },
 
   dependencies = {
     "nvim-neotest/nvim-nio",
@@ -14,8 +18,6 @@ ncvim.plugin({
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-jest",
   },
-
-  keys = { "te" },
 
   config = function(_)
     require("neotest").setup({

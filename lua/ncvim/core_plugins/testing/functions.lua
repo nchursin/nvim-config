@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-cmd [[
+cmd([[
 	function! DebugNearest()
 	  let g:test#go#runner = 'delve'
 	  lua require('dap-go').debug_test()
@@ -12,7 +12,7 @@ cmd [[
 	  lua require('dap-go').debug_last_test()
 	  unlet g:test#go#runner
 	endfunction
-]]
+]])
 
 ncvim.testing = {
   test_file = function()
@@ -28,7 +28,7 @@ ncvim.testing = {
     -- vim.cmd('TestLast')
   end,
   test_visit = function()
-    vim.cmd('TestVisit')
+    vim.cmd("TestVisit")
   end,
   test_suite = function()
     require("neotest").run.run({ suite = true })
@@ -46,6 +46,9 @@ ncvim.testing = {
     require("neotest").output_panel.toggle()
   end,
   toggle_test_explorer = function()
+    if not require("lazy.core.config").plugins["neotest"]._.loaded then
+      vim.rpcnotify(0, ncvim.events.load_test_plugin, {})
+    end
     require("neotest").summary.toggle()
   end,
 }
