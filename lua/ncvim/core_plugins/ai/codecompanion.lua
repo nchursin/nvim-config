@@ -7,7 +7,7 @@ ncvim.plugin({
     "nvim-treesitter/nvim-treesitter",
   },
 
-  cmd = { "CodeCompanionChat", "CodeCompanionActions" },
+  cmd = { "CodeCompanionChat", "CodeCompanionActions", "CodeCompanion" },
 
   config = function()
     local _, adapters = pcall(require, "custom.codecompanion_adapters")
@@ -74,6 +74,12 @@ ncvim.add_mappings({
     mode = { "n", "v", "s" },
     key_string = "<leader>ca",
     command = "<cmd>CodeCompanionActions<CR>",
+    options = silent_noremap,
+  },
+  {
+    mode = { "n", "v", "s" },
+    key_string = "<leader>ci",
+    command = "<cmd>CodeCompanion<CR>",
     options = silent_noremap,
   },
 })
