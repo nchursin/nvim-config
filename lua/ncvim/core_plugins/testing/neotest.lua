@@ -1,3 +1,16 @@
+local function endsWith(str, suffix)
+  -- Check if the suffix is longer than the string, in which case it cannot be a suffix.
+  if #suffix > #str then
+    return false
+  end
+
+  -- Get the substring from the end of the string with the same length as the suffix.
+  local endSubstring = string.sub(str, -#suffix)
+
+  -- Compare the end substring with the suffix and return the result.
+  return endSubstring == suffix
+end
+
 ncvim.plugin({
   "nvim-neotest/neotest",
   event = {
@@ -19,12 +32,20 @@ ncvim.plugin({
     "nvim-neotest/neotest-jest",
   },
 
-  config = function(_)
+  config = function(_, opts)
     require("neotest").setup({
+      -- output = {
+      --   open_on_run = false
+      -- },
       adapters = {
-        require("neotest-python"),
+        require("neotest-python")({
+          dap = { justMyCode = false },
+          -- args = {"--log-level", "DEBUG"},
+          args = { "--log-level", "INFO" },
+          runner = "pytest",
+          -- python = ".venv/bin/python",
+        }),
 
-        require("neotest-rust"),
         require("neotest-jest")({
           jestCommand = "npm test --",
           jestConfigFile = "jest.config.ts",
@@ -45,6 +66,8 @@ ncvim.plugin({
             -- "-race",
           },
         }),
+
+        require("neotest-rust"),
       },
     })
   end,
