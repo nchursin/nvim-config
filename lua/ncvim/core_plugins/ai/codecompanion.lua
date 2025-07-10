@@ -65,14 +65,14 @@ ncvim.plugin({
         },
       },
       prompt_library = {
-        ["Commit Message Inline Generate"] = {
+        ["Commit Message Inline"] = {
           strategy = "inline",
           description = "Generate a commit message",
           opts = {
             is_default = true,
-            is_slash_cmd = false,
+            is_slash_cmd = true,
             user_prompt = false,
-            short_name = "commit-ozon-inline",
+            short_name = "commit",
             placement = "before",
             stop_context_insertion = true,
             auto_submit = true,
@@ -102,14 +102,14 @@ Given the git diff listed below, please generate a commit message for me:
             },
           },
         },
-        ["Commit Message Chat Generate"] = {
+        ["Generate Commit Message Chat"] = {
           strategy = "chat",
           description = "Generate a commit message",
           opts = {
             index = 10,
             is_default = true,
-            is_slash_cmd = true,
-            short_name = "commit",
+            is_slash_cmd = false,
+            short_name = "commit-chat",
             auto_submit = true,
           },
           prompts = {
@@ -168,6 +168,12 @@ ncvim.add_mappings({
     mode = { "i" },
     key_string = "<C-c><C-i>",
     command = "<cmd>CodeCompanion<CR>",
+    options = silent_noremap,
+  },
+  {
+    mode = { "n" },
+    key_string = "<leader>aigc",
+    command = "<cmd>CodeCompanion /commit<CR>",
     options = silent_noremap,
   },
 })
