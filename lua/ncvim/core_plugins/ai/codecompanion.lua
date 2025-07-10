@@ -45,17 +45,99 @@ ncvim.plugin({
           adapter = adapters.inline_adapter,
           keymaps = {
             accept_change = {
-              modes = { n = "ga" },
+              modes = {
+                n = "ga",
+                i = "<C-g><C-a>",
+              },
               description = "Accept the suggested change",
             },
             reject_change = {
-              modes = { n = "gr" },
+              modes = {
+                n = "gr",
+                i = "<C-g><C-r>",
+              },
               description = "Reject the suggested change",
             },
           },
         },
         cmd = {
           adapter = adapters.cmd_adapter,
+        },
+      },
+      prompt_library = {
+        ["Commit Message Inline Generate"] = {
+          strategy = "inline",
+          description = "Generate a commit message",
+          opts = {
+            is_default = true,
+            is_slash_cmd = false,
+            user_prompt = false,
+            short_name = "commit-ozon-inline",
+            placement = "before",
+            stop_context_insertion = true,
+            auto_submit = true,
+          },
+          prompts = {
+            {
+              role = "user",
+              content = function()
+                return string.format(
+                  [[
+You are an expert at following the Conventional Commit specification.
+
+- Commit message must be in English
+
+Given the git diff listed below, please generate a commit message for me:
+
+```diff
+%s
+```
+]],
+                  vim.fn.system("git diff --no-ext-diff --staged")
+                )
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
+        ["Commit Message Chat Generate"] = {
+          strategy = "chat",
+          description = "Generate a commit message",
+          opts = {
+            index = 10,
+            is_default = true,
+            is_slash_cmd = true,
+            short_name = "commit",
+            auto_submit = true,
+          },
+          prompts = {
+            {
+              role = "user",
+              content = function()
+                return string.format(
+                  [[
+You are an expert at following the Conventional Commit specification.
+
+- Commit message must be in English
+- Answer with markdown fenced code block.
+
+Given the git diff listed below, please generate a commit message for me:
+
+```diff
+%s
+```
+]],
+                  get_feature_from_branch(),
+                  vim.fn.system("git diff --no-ext-diff --staged")
+                )
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
         },
       },
       adapters = adapters.adapters,
@@ -79,6 +161,12 @@ ncvim.add_mappings({
   {
     mode = { "n", "v", "s" },
     key_string = "<leader>ci",
+    command = "<cmd>CodeCompanion<CR>",
+    options = silent_noremap,
+  },
+  {
+    mode = { "i" },
+    key_string = "<C-c><C-i>",
     command = "<cmd>CodeCompanion<CR>",
     options = silent_noremap,
   },
