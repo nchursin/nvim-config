@@ -72,7 +72,7 @@ ncvim.plugin({
             is_default = true,
             is_slash_cmd = true,
             user_prompt = false,
-            short_name = "commit",
+            short_name = "inline-commit",
             placement = "before",
             stop_context_insertion = true,
             auto_submit = true,
@@ -93,43 +93,6 @@ Given the git diff listed below, please generate a commit message for me:
 %s
 ```
 ]],
-                  vim.fn.system("git diff --no-ext-diff --staged")
-                )
-              end,
-              opts = {
-                contains_code = true,
-              },
-            },
-          },
-        },
-        ["Generate Commit Message Chat"] = {
-          strategy = "chat",
-          description = "Generate a commit message",
-          opts = {
-            index = 10,
-            is_default = true,
-            is_slash_cmd = false,
-            short_name = "commit-chat",
-            auto_submit = true,
-          },
-          prompts = {
-            {
-              role = "user",
-              content = function()
-                return string.format(
-                  [[
-You are an expert at following the Conventional Commit specification.
-
-- Commit message must be in English
-- Answer with markdown fenced code block.
-
-Given the git diff listed below, please generate a commit message for me:
-
-```diff
-%s
-```
-]],
-                  get_feature_from_branch(),
                   vim.fn.system("git diff --no-ext-diff --staged")
                 )
               end,
@@ -173,7 +136,7 @@ ncvim.add_mappings({
   {
     mode = { "n" },
     key_string = "<leader>aigc",
-    command = "<cmd>CodeCompanion /commit<CR>",
+    command = "<cmd>CodeCompanion /inline-commit<CR>",
     options = silent_noremap,
   },
 })
