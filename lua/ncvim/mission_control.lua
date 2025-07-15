@@ -13,6 +13,7 @@ ncvim = {
   mappings = {},
   plugins = {
     "lewis6991/impatient.nvim",
+    "nvim-lua/plenary.nvim",
     --'joshdick/onedark.vim',
     -- {
     --   "olimorris/onedarkpro.nvim",
@@ -258,6 +259,7 @@ ncvim = {
     end,
   },
   autocmds = {},
+  functions = {},
 
   post_install = {},
 
@@ -269,6 +271,17 @@ ncvim = {
 ncvim.events = {
   load_test_plugin = "ncvim_plugin_load_testing_plugin_event",
 }
+
+ncvim.functions.reload_config = function()
+  for name, _ in pairs(package.loaded) do
+    if name:match("^user") and not name:match("nvim-tree") then
+      package.loaded[name] = nil
+    end
+  end
+
+  dofile(vim.env.MYVIMRC)
+  vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
+end
 
 ncvim.load_secret = function(secret_name)
   local handle = io.popen("pass " .. secret_name)

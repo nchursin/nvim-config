@@ -102,6 +102,39 @@ Given the git diff listed below, please generate a commit message for me:
             },
           },
         },
+
+        ["Doc Comment"] = {
+          strategy = "chat",
+          description = "Generate doc comments for the selected method",
+          opts = {
+            index = 12, -- Adjust the index as needed
+            is_slash_cmd = false,
+            auto_submit = false,
+            short_name = "doc_comment",
+          },
+          references = {}, -- Add any relevant references if needed
+          prompts = {
+            {
+              role = "system",
+              content = function(context)
+                return "I want you to generate a doc comment for the following "
+                  .. context.filetype
+                  .. " method. Please provide a concise and informative doc comment."
+              end,
+            },
+            {
+              role = "user",
+              content = function(context)
+                -- local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
+                -- return "Here is the method:\n\n```" .. context.filetype .. "\n" .. text .. "\n```\n\n"
+                return "Here is the method:"
+              end,
+              opts = {
+                contains_code = true,
+              },
+            },
+          },
+        },
       },
       adapters = adapters.adapters,
     })
