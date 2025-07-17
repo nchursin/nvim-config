@@ -1,9 +1,10 @@
 ncvim.plugin({
-  "milanglacier/minuet-ai.nvim",
-  dependences = {
+  -- "milanglacier/minuet-ai.nvim",
+  "IlyasYOY/minuet-ai.nvim",
+  dependencies = {
     "nvim-lua/plenary.nvim",
     -- это можно использовать с моим fork, тогда будет видно, когда работает расширение.
-    -- "j-hui/fidget.nvim",
+    "j-hui/fidget.nvim",
   },
   config = function()
     local _, provider = pcall(require, "custom.minuet")
@@ -12,9 +13,9 @@ ncvim.plugin({
       virtualtext = {
         keymap = {
           -- accept whole completion
-          accept = "<A-l>",
+          accept = "<A-a>",
           -- accept one line
-          accept_line = "<A-L>",
+          accept_line = "<A-l>",
           accept_n_lines = nil,
           -- Cycle to prev completion item, or manually invoke completion
           prev = "<A-k>",
@@ -37,6 +38,6 @@ ncvim.plugin({
     vim.keymap.set("n", "<leader>cm", "<cmd>Minuet virtualtext toggle<CR>", { desc = "Toggle Minuet virtual text" })
 
     -- можете использовать это, если подключите мой fork.
-    -- require("minuet.fidget"):init()
+    require("minuet.fidget"):init()
   end,
 })
