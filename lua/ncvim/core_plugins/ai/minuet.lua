@@ -29,7 +29,7 @@ ncvim.plugin({
         show_on_completion_menu = false,
       },
       provider = provider.type,
-      request_timeout = 2.5,
+      request_timeout = 5,
       throttle = 3000,
       debounce = 1500,
       provider_options = provider.options,

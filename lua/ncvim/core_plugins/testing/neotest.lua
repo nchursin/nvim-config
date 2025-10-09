@@ -22,14 +22,29 @@ ncvim.plugin({
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    -- "nvim-treesitter/nvim-treesitter",
+    -- {
+    --   "fredrikaverpil/neotest-golang",
+    --   version = "*",
+    -- },
+    {
+      "nvim-treesitter/nvim-treesitter", -- Optional, but recommended
+      branch = "main", -- NOTE; not the master branch!
+      build = function()
+        vim.cmd(":TSUpdate go")
+      end,
+    },
     {
       "fredrikaverpil/neotest-golang",
-      version = "*",
+      version = "*", -- Optional, but recommended; track releases
+      build = function()
+        vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+      end,
     },
     "rouge8/neotest-rust",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-jest",
+    "adrigzr/neotest-mocha",
   },
 
   config = function(_, opts)
@@ -68,6 +83,32 @@ ncvim.plugin({
         }),
 
         require("neotest-rust"),
+
+        -- require("neotest-mocha")({
+        --   command = "npm test --",
+        --   command_args = function(context)
+        --     -- The context contains:
+        --     --   results_path: The file that json results are written to
+        --     --   test_name: The exact name of the test; is empty for `file` and `dir` position tests.
+        --     --   test_name_pattern: The generated pattern for the test
+        --     --   path: The path to the test file
+        --     --
+        --     -- It should return a string array of arguments
+        --     --
+        --     -- Not specifying 'command_args' will use the defaults below
+        --     return {
+        --       "--full-trace",
+        --       "--reporter=json",
+        --       "--reporter-options=output=" .. context.results_path,
+        --       "--grep=" .. context.test_name_pattern,
+        --       context.path,
+        --     }
+        --   end,
+        --   env = { CI = true },
+        --   cwd = function(path)
+        --     return vim.fn.getcwd()
+        --   end,
+        -- }),
       },
     })
   end,
