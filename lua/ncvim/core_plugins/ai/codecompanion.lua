@@ -15,8 +15,10 @@ ncvim.plugin({
 
     if adapters == nil then
       adapters = {
-        opts = {
-          show_defaults = true,
+        http = {
+          opts = {
+            show_defaults = true,
+          },
         },
       }
     end
