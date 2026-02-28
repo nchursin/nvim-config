@@ -1,24 +1,24 @@
 -- TODO: check if this is needed at all with telescope-ui-select
 
 ncvim.config = {
-  path = vim.fn.stdpath('config'),
+  path = vim.fn.stdpath("config"),
 
   open = function()
-    vim.cmd('cd ' .. ncvim.config.path)
-  end
+    vim.cmd("cd " .. ncvim.config.path)
+  end,
 }
 
 ncvim.lsp = {
   references = function()
-    require('telescope.builtin').lsp_references()
+    require("telescope.builtin").lsp_references()
   end,
 
   implementations = function()
-    require('telescope.builtin').lsp_implementations()
+    require("telescope.builtin").lsp_implementations()
   end,
 
   definitions = function()
-    require('telescope.builtin').lsp_definitions()
+    require("telescope.builtin").lsp_definitions()
   end,
 
   declaration = function()
@@ -32,40 +32,40 @@ ncvim.lsp = {
 
 ncvim.filetree = {
   toggle = function()
-    print 'Filetree not configured'
+    print("Filetree not configured")
   end,
 
   focus = function()
-    print 'Filetree not configured'
+    print("Filetree not configured")
   end,
 
   current_file = function()
-    print 'Filetree not configured'
+    print("Filetree not configured")
   end,
 
   restart = function()
-    print 'Filetree not configured'
+    print("Filetree not configured")
   end,
 }
 
 ncvim.db = {
   toggle = function()
-    vim.cmd 'DBUIToggle'
+    vim.cmd("DBUIToggle")
   end,
 }
 
 ncvim.ui = {
   panels = {
     minimap = function()
-      vim.cmd 'MinimapToggle'
+      vim.cmd("MinimapToggle")
     end,
 
     symbois = function()
-      vim.cmd 'SymbolsOutline'
+      vim.cmd("Outline")
     end,
 
     todo = function()
-      vim.cmd 'TodoLocList keywords=TODO,FIX,FIXME'
-    end
-  }
+      vim.cmd("TodoLocList keywords=TODO,FIX,FIXME")
+    end,
+  },
 }

@@ -3,6 +3,8 @@ return function()
   local api = vim.api
   local lsp = vim.lsp
 
+  local lspconfig = require("lspconfig")
+
   local bufopts = {
     noremap = true,
     silent = true,
@@ -64,22 +66,27 @@ return function()
   -- })
 
   require("mason-lspconfig").setup_handlers({
-    function()
-      vim.lsp.config("*", {
+    function(server_name)
+      lspconfig[server_name].setup({
         on_attach = on_attach,
         capabilities = capabilities,
       })
     end,
 
     ["gopls"] = function()
-      vim.lsp.config("gopls", {
+      lspconfig.gopls.setup({
+        settings = {
+          gopls = {
+            buildFlags = { "-tags=integration" },
+          },
+        },
         on_attach = on_attach_with_format,
         capabilities = capabilities,
       })
     end,
 
     ["lua_ls"] = function()
-      vim.lsp.config("lua_ls", {
+      lspconfig.lua_ls.setup({
         on_attach = on_attach_with_format,
         capabilities = capabilities,
         settings = {
