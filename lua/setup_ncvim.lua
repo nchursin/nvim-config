@@ -6,7 +6,6 @@ local function loadrequire(module)
   pcall(requiref, module)
 end
 
-loadrequire('impatient')
 loadrequire('plenary')
 
 -- ncvim.config_packer()

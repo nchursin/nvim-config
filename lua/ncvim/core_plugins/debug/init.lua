@@ -1,5 +1,6 @@
 ncvim.plugin({
   'mfussenegger/nvim-dap',
+  cmd = { "DapContinue", "DapToggleBreakpoint", "DapStepOver", "DapStepInto", "DapStepOut", "DapTerminate" },
   requires = {
     "nvim-neotest/nvim-nio",
     "rcarriga/nvim-dap-ui",

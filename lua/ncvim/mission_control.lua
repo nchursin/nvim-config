@@ -12,7 +12,6 @@
 ncvim = {
   mappings = {},
   plugins = {
-    "lewis6991/impatient.nvim",
     "nvim-lua/plenary.nvim",
     --'joshdick/onedark.vim',
     -- {
